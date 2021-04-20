@@ -16,6 +16,18 @@ namespace CKS_1._0
 {
     public class Startup
     {
+        public async void ElectronBootstrap()
+{
+    var browserWindow = await Electron.WindowManager.CreateWindowAsync(new BrowserWindowOptions
+    {
+        Width = 1152,
+        Height = 940,
+        Show = true
+    });
+    await browserWindow.WebContents.Session.ClearCacheAsync();
+    browserWindow.OnReadyToShow += () => browserWindow.Show();
+    browserWindow.SetTitle("JetBrains!");
+}
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -25,9 +37,12 @@ namespace CKS_1._0
 {  
     var window = await Electron.WindowManager.CreateWindowAsync();  
     window.OnClosed += () => {  
-        Electron.App.Quit();  
+        Electron.App.Quit();
+
     };  
 }
+
+
 
 
 
@@ -55,7 +70,7 @@ namespace CKS_1._0
 
                 if (HybridSupport.IsElectronActive)  
 {  
-    CreateWindow();  
+    ElectronBootstrap();  
 }
 
             app.UseHttpsRedirection();
@@ -71,4 +86,9 @@ namespace CKS_1._0
             });
         }
     }
+
+    
+    
 }
+
+
