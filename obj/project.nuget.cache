@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/dI27rsH0ItOOUbL+zZMqJjJtEO0TeeDH25aA23mPqEo20OmgP4VC9XATt5BjXYIIuFlGQQe5EPyFEJlLvNnQQ==",
+  "dgSpecHash": "Fngv3KVwl8PhMFsq5T1y1+rip6HQxPlwgv7wJb4TFf4k1Sf5Ta16WgfR4tdyl/bPtOZAAdGU7N7iJG9bBr2PQg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Henry Moon\\Documents\\CKS-1.0\\CKS-1.0.csproj",
+  "projectFilePath": "C:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\CKS-1.0.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Henry Moon\\.nuget\\packages\\electronnet.api\\9.31.2\\electronnet.api.9.31.2.nupkg.sha512",
     "C:\\Users\\Henry Moon\\.nuget\\packages\\engineioclientdotnet\\1.0.5\\engineioclientdotnet.1.0.5.nupkg.sha512",

@@ -7661,11 +7661,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Henry Moon\\Documents\\CKS-1.0\\CKS-1.0.csproj",
+      "projectUniqueName": "C:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\CKS-1.0.csproj",
       "projectName": "CKS-1.0",
-      "projectPath": "C:\\Users\\Henry Moon\\Documents\\CKS-1.0\\CKS-1.0.csproj",
+      "projectPath": "C:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\CKS-1.0.csproj",
       "packagesPath": "C:\\Users\\Henry Moon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Henry Moon\\Documents\\CKS-1.0\\obj\\",
+      "outputPath": "C:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Henry Moon\\AppData\\Roaming\\NuGet\\NuGet.Config"
