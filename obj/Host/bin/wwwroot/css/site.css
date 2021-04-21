@@ -61,11 +61,10 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-  width:85%;
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  grid-column-start: 4;
+  grid-column-end: 12; 
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
-  right: 0;
 }
 .footer {
   position: absolute;
@@ -78,7 +77,8 @@ body {
 /* The sidebar menu */
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 15%; /* Set the width of the sidebar, testing in percents */
+  grid-column-start: 1;
+  grid-column-end: 4;
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
