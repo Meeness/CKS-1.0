@@ -140,3 +140,4 @@ C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\ref\CKS-1.
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.pdb
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.genruntimeconfig.cache
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\DeviceSettings.cshtml.g.cs
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\GameSettings.cshtml.g.cs
