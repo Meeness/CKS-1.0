@@ -26,7 +26,7 @@ namespace CKS_1._0
     });
     await browserWindow.WebContents.Session.ClearCacheAsync();
     browserWindow.OnReadyToShow += () => browserWindow.Show();
-    browserWindow.SetTitle("JetBrains!");
+    browserWindow.SetTitle("Combat Karts Management System");
 }
         public Startup(IConfiguration configuration)
         {
