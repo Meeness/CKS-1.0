@@ -141,3 +141,6 @@ C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.pd
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.genruntimeconfig.cache
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\DeviceSettings.cshtml.g.cs
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\GameSettings.cshtml.g.cs
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\AppSettings.cshtml.g.cs
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\Sounds.cshtml.g.cs
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\Statistics.cshtml.g.cs
