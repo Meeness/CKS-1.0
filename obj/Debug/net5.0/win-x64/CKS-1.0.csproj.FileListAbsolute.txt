@@ -50,3 +50,4 @@ C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.dll
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\win-x64\ref\CKS-1.0.dll
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.pdb
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.genruntimeconfig.cache
+C:\Users\Lenovo\Desktop\Combat\CKS-1.0\bin\Debug\net5.0\win-x64\package-lock.json

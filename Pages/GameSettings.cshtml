@@ -5,12 +5,25 @@
 }
 <section class="main">
 <div class="text-center">
-    <h1 class="display-4" style="text-align: left;">Game settings</h1>
+    <h1 class="display-4" style="text-align: left; font-size:30px; margin-left: -30px; padding-top: 20px;">Games settings</h1>
     
 </div>
-<div>
-        <span class="dot" style="height: 20px; width: 20px; background-color: green; border-radius: 50%; display: inline-block;"></span><p>GAMERS</p>
-    </div>
+<div style="margin-top: 20px; width: 60%; background-color: #0E234E; padding: 5px; border-radius: 15px 15px 0px 0px">
+        <span class="dot" style="height: 20px; width: 20px; background-color: green; border-radius: 50%; display: inline-block;">
+          <p style="margin-left: 30px; margin-top:-3px; color:white;">GAMERS</p></span> 
+        </div> 
+        <div style="position: absolute;left: 60%;top: 14%;/* font-size: 14px;"><h2 style="font-size: 22px;">Game script</h2>
+        <select id="gamemode" name="gamemodes" style="background-color:#0E234E; border-radius: 10px; color: white; padding: 0px 6px 2px 20px; text-align: left;">
+  <option value="volvo">Best of the best</option>
+  <option value="saab">One on one</option>
+  <option value="mercedes">TDM</option>
+</select>
+        </div>
+        <div style="position: absolute;left: 60%;top: 40%;/* font-size: 14px;"><h2 style="font-size: 22px;">Game cost</h2>  <input type="text" id="costs" value="0" style="border-bottom: 2px; border-bottom: solid;border-top: none;border-left: none;border-right: none;border-color: #CC0000;"></div>
+ <div style="width:60%;height:400px; background-color:#0E234E; margin-top: 3px"></div>
+ <div style="position: absolute;left: 60%;top: 56%;/* font-size: 14px;"><h2 style="font-size: 22px;">Glow between games</h2> <label class="switch"><input type="checkbox"><span class="slider round"></span></label></div>
+<div style="margin-top: 3px; width: 60%; background-color: #0E234E; padding: 5px; border-radius: 0px 0px 15px 15px; height: 35px"></div>
+<div><button id="start" onclick="countDown()">START GAME</button><div id="status">10:00</div></div>
 <div class="sidenav">
   <a href="/Index">Home</a>
   <a href="/GameSettings">Game Settings</a>
@@ -20,4 +33,96 @@
   <a href="/AppSettings">Application Settings</a>
   <a href="/Privacy">Privacy</a>
 </div>
+<style>
+
+  #start{
+    left: 66%;
+    position: absolute;
+    font-size: 50px;
+    border-radius: 42px;
+    padding-left: 27px;
+    padding-right: 30px;
+    padding-bottom: 7px;
+    color: white;
+    border: none;
+    background-color: #CC0000;
+    TOP: 110%
+  }
+
+  #status{
+        position: absolute;
+    left: 69%;
+    top: 77%;
+    font-size: 100px;
+    color: #CC0000;
+  }
+
+  .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #CC0000;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #CC0000;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+  width: 28%;
+    height: 50%;
+    top: 55%;
+    left: -4%;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+<script>
+  function countDown() {
+    var secs = 600;
+    var mins;
+    var element = document.getElementById('status');
+    
+    setInterval(function(){
+      mins = secs / 60;
+      element.innerHTML = mins.toFixed(2);
+      if(secs < 1) {
+          element.innerHTML = '<h2>You have no time left!</h2>';
+      }  
+      secs--;
+    }, 1000)  
+
+}
+</script>
 </section>
