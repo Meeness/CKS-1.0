@@ -10,9 +10,9 @@ namespace CKS_1._0.Pages
 {
     public class AppSettingsModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly ILogger<AppSettingsModel> _logger;
 
-        public AppSettingsModel(ILogger<IndexModel> logger)
+        public AppSettingsModel(ILogger<AppSettingsModel> logger)
         {
             _logger = logger;
         }

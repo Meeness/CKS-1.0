@@ -7,9 +7,9 @@ namespace CKS_1._0.Pages
 {
     public class StatisticsModel : PageModel
     {
-        private readonly ILogger<PrivacyModel> _logger;
+        private readonly ILogger<StatisticsModel> _logger;
 
-        public StatisticsModel(ILogger<PrivacyModel> logger)
+        public StatisticsModel(ILogger<StatisticsModel> logger)
         {
             _logger = logger;
         }

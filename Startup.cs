@@ -20,7 +20,7 @@ namespace CKS_1._0
 {
     var browserWindow = await Electron.WindowManager.CreateWindowAsync(new BrowserWindowOptions
     {
-        Width = 1152,
+        Width = 1600,
         Height = 940,
         Show = true
     });

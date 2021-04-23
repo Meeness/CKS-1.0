@@ -10,9 +10,9 @@ namespace CKS_1._0.Pages
 {
     public class DeviceSettingsModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly ILogger<DeviceSettingsModel> _logger;
 
-        public DeviceSettingsModel(ILogger<IndexModel> logger)
+        public DeviceSettingsModel(ILogger<DeviceSettingsModel> logger)
         {
             _logger = logger;
         }

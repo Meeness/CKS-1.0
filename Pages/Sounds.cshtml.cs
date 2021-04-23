@@ -7,9 +7,9 @@ namespace CKS_1._0.Pages
 {
     public class SoundsModel : PageModel
     {
-        private readonly ILogger<PrivacyModel> _logger;
+        private readonly ILogger<SoundsModel> _logger;
 
-        public SoundsModel(ILogger<PrivacyModel> logger)
+        public SoundsModel(ILogger<SoundsModel> logger)
         {
             _logger = logger;
         }

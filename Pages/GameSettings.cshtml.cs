@@ -10,9 +10,9 @@ namespace CKS_1._0.Pages
 {
     public class GameSettingsModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly ILogger<GameSettingsModel> _logger;
 
-        public GameSettingsModel(ILogger<IndexModel> logger)
+        public GameSettingsModel(ILogger<GameSettingsModel> logger)
         {
             _logger = logger;
         }
