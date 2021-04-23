@@ -1,8 +1,20 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "0hB1jv+NcHTTkYAIL9Ax5+3/LX3oVbycTFWumpejrzcafrybhAsO7Btk/aNowywyInKi8fzirHRwM67BSkqrKg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\CKS-1.0.csproj",
+=======
+<<<<<<< HEAD
+  "dgSpecHash": "0hB1jv+NcHTTkYAIL9Ax5+3/LX3oVbycTFWumpejrzcafrybhAsO7Btk/aNowywyInKi8fzirHRwM67BSkqrKg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\CKS-1.0.csproj",
+=======
+  "dgSpecHash": "Fngv3KVwl8PhMFsq5T1y1+rip6HQxPlwgv7wJb4TFf4k1Sf5Ta16WgfR4tdyl/bPtOZAAdGU7N7iJG9bBr2PQg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\CKS-1.0.csproj",
+>>>>>>> d050cb5dd931c1cf7e7c4f435a7764acd4105c8b
+>>>>>>> Stashed changes
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\electronnet.api\\9.31.2\\electronnet.api.9.31.2.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\engineioclientdotnet\\1.0.5\\engineioclientdotnet.1.0.5.nupkg.sha512",
@@ -123,5 +135,12 @@
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\5.0.4\\microsoft.windowsdesktop.app.runtime.win-x64.5.0.4.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\5.0.4\\microsoft.aspnetcore.app.runtime.win-x64.5.0.4.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

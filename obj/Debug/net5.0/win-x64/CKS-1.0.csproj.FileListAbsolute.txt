@@ -92,3 +92,63 @@ C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.dll
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\win-x64\ref\CKS-1.0.dll
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.pdb
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.genruntimeconfig.cache
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\bin\Debug\net5.0\win-x64\appsettings.Development.json
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\bin\Debug\net5.0\win-x64\appsettings.json
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\bin\Debug\net5.0\win-x64\electron.manifest.json
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\bin\Debug\net5.0\win-x64\CKS-1.0.exe
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\bin\Debug\net5.0\win-x64\CKS-1.0.deps.json
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\bin\Debug\net5.0\win-x64\CKS-1.0.runtimeconfig.json
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\bin\Debug\net5.0\win-x64\CKS-1.0.runtimeconfig.dev.json
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\bin\Debug\net5.0\win-x64\CKS-1.0.dll
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\bin\Debug\net5.0\win-x64\ref\CKS-1.0.dll
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\bin\Debug\net5.0\win-x64\CKS-1.0.pdb
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\bin\Debug\net5.0\win-x64\CKS-1.0.Views.dll
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\bin\Debug\net5.0\win-x64\CKS-1.0.Views.pdb
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\bin\Debug\net5.0\win-x64\ElectronNET.API.dll
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\bin\Debug\net5.0\win-x64\EngineIoClientDotNet.dll
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\bin\Debug\net5.0\win-x64\Newtonsoft.Json.dll
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\bin\Debug\net5.0\win-x64\SocketIoClientDotNet.dll
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\bin\Debug\net5.0\win-x64\SuperSocket.ClientEngine.dll
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\bin\Debug\net5.0\win-x64\WebSocket4Net.dll
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.csprojAssemblyReference.cache
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.AssemblyInfoInputs.cache
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.AssemblyInfo.cs
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.csproj.CoreCompileInputs.cache
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.RazorAssemblyInfo.cache
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.RazorAssemblyInfo.cs
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\staticwebassets\CKS-1.0.StaticWebAssets.Manifest.cache
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\staticwebassets\CKS-1.0.StaticWebAssets.xml
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\scopedcss\bundle\CKS-1.0.styles.css
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.TagHelpers.input.cache
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.TagHelpers.output.cache
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.RazorCoreGenerate.cache
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\Error.cshtml.g.cs
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\Index.cshtml.g.cs
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\Privacy.cshtml.g.cs
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\Shared\_Layout.cshtml.g.cs
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\_ViewImports.cshtml.g.cs
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\_ViewStart.cshtml.g.cs
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.RazorTargetAssemblyInfo.cache
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.RazorTargetAssemblyInfo.cs
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.Views.pdb
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.csproj.CopyComplete
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.dll
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\ref\CKS-1.0.dll
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.pdb
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.genruntimeconfig.cache
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\DeviceSettings.cshtml.g.cs
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\GameSettings.cshtml.g.cs
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\AppSettings.cshtml.g.cs
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\Sounds.cshtml.g.cs
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\Statistics.cshtml.g.cs
+<<<<<<< HEAD
+C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\AppSettings.cshtml.g.cs
+C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\DeviceSettings.cshtml.g.cs
+C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\GameSettings.cshtml.g.cs
+C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\Sounds.cshtml.g.cs
+C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\Statistics.cshtml.g.cs
+=======
+>>>>>>> d050cb5dd931c1cf7e7c4f435a7764acd4105c8b
