@@ -5,7 +5,7 @@
 }
 <section class="main">
 <div class="text-center">
-    <h1 class="display-4" style="text-align: left;">Application settings</h1>
+    <h1 class="display-4">Application settings</h1>
     <br>
 </div>
 
@@ -18,4 +18,138 @@
   <a href="/AppSettings">Application Settings</a>
   <a href="/Privacy">Privacy</a>
 </div>
+<div class="topnav">
+  <a class="active" href="#home">GENERAL SETTINGS</a>
+  <a href="#news">RECOVERY</a>
+  <a href="#contact">DHCP SERVER</a>
+  <a href="#contact">ABOUT PROGRAM</a>
+</div>
+
+<div class="grid-container">
+  <div class="Appearance">
+    <h5 id="H5">APPEARANCE</h5>
+    <br>
+      <ul class="no-bullets">
+        <li class="spacing">Language <select class="selectors"> 
+                                        <option value="English">English</option>
+                                        <option value="Spanish">Spanish</option>
+                                        <option value="Danish">Danish</option>
+                                        <option value="Russian">Russian</option>
+                                    </select></li>
+        <li class="spacing">Background</li>
+        <li class="spacing">Logo (520x80px)</li>
+        <li class="spacing">Export template</li>
+        <li class="spacing">System color <select class="selectors">
+                                        <option value="Green">Green</option>
+                                        <option value="Blue">Blue</option>
+                                        <option value="White">White</option>
+                                        <option value="Red">Red</option>
+                                    </select></li>
+        <li class="spacing">First color <select class="selectors">
+                                        <option value="Green">Green</option>
+                                        <option value="Blue">Blue</option>
+                                        <option value="White">White</option>
+                                        <option value="Red">Red</option>
+                                    </select></li>
+        <li class="spacing">Second color <select class="selectors">
+                                        <option value="Green">Green</option>
+                                        <option value="Blue">Blue</option>
+                                        <option value="White">White</option>
+                                        <option value="Red">Red</option>
+                                    </select></li>
+    </ul>
+  <div class="Listing"></div>
+  <div class="Sound"></div>
+  <div class="Screens"></div>
+  <div class="Information"></div>
+</div>
+<style>
+  .display-4{
+    text-align: left; 
+    font-size:30px; 
+    margin-left: -30px;
+    padding-top: 20px;
+  }
+
+ul.no-bullets {
+    list-style-type: none;
+    margin: 0;
+    padding: 0px;
+    position: absolute;
+    top: 120%;
+    margin-left: 44px;
+}
+
+.selectors{
+      float: right;
+    left: 18%;
+    position: relative;
+    width: 185px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgba(14, 35, 78, 0.28);
+}
+
+.spacing{
+    padding-bottom: 10px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: white;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 10px 7%;
+  text-decoration: none;
+  font-size: 17px;
+  border-bottom: 3px solid GREY;
+}
+
+.topnav a:hover {
+  border-bottom: 3px solid #CC0000;
+}
+
+.topnav a.active {
+  border-bottom: 3px solid #CC0000;
+}
+
+#H5{
+  TOP: 95%;
+    position: absolute;
+    text-decoration: none;
+    width: 30%;
+    display: block;
+    border-bottom: 2px solid #CC0000;
+    font-weight: 100;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "Appearance Appearance Appearance Appearance Appearance Appearance Sound Sound Sound Sound Sound"
+    "Appearance Appearance Appearance Appearance Appearance Appearance Sound Sound Sound Sound Sound"
+    "Appearance Appearance Appearance Appearance Appearance Appearance Sound Sound Sound Sound Sound"
+    "Appearance Appearance Appearance Appearance Appearance Appearance Screens Screens Screens Screens Screens"
+    "Appearance Appearance Appearance Appearance Appearance Appearance Screens Screens Screens Screens Screens"
+    "Listing Listing Listing Listing Listing Listing Screens Screens Screens Screens Screens"
+    "Listing Listing Listing Listing Listing Listing Information Information Information Information Information"
+    "Listing Listing Listing Listing Listing Listing Information Information Information Information Information";
+}
+.Appearance { grid-area: Appearance; }
+.Listing { grid-area: Listing; }
+.Sound { grid-area: Sound; }
+.Screens { grid-area: Screens; }
+.Information { grid-area: Information; }
+
+
+
+</style>
 </section>

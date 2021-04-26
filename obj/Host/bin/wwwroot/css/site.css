@@ -61,7 +61,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-  width:85%;
+  width:90%;
   position:fixed;
   right:0;
   z-index: 1; /* Stay on top */
