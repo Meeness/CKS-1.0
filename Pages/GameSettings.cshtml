@@ -24,15 +24,9 @@
  <div style="position: absolute;left: 60%;top: 56%;/* font-size: 14px;"><h2 style="font-size: 22px;">Glow between games</h2> <label class="switch"><input type="checkbox"><span class="slider round"></span></label></div>
 <div style="margin-top: 3px; width: 60%; background-color: #0E234E; padding: 5px; border-radius: 0px 0px 15px 15px; height: 35px"></div>
 <div><button id="start" onclick="countDown()">START GAME</button><div id="status">10:00</div></div>
-<div class="sidenav">
-  <a href="/Index">Home</a>
-  <a href="/GameSettings">Game Settings</a>
-  <a href="/DeviceSettings">Devices settings</a>
-  <a href="/Sounds">Sounds</a>
-  <a href="/Statistics">Statistics</a>
-  <a href="/AppSettings">Application Settings</a>
-  <a href="/Privacy">Privacy</a>
-</div>
+
+
+
 <style>
 
   #start{
@@ -108,6 +102,8 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 </style>
+
+
 <script>
   function countDown() {
     var secs = 600;

@@ -92,7 +92,6 @@ C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Page
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\Privacy.cshtml.g.cs
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\Shared\_Layout.cshtml.g.cs
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\Sounds.cshtml.g.cs
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\Statistics.cshtml.g.cs
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\_ViewImports.cshtml.g.cs
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\_ViewStart.cshtml.g.cs
