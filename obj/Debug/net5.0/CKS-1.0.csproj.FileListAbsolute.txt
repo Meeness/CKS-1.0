@@ -39,7 +39,6 @@ C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\Razor\Pages\Index.cshtml
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\Razor\Pages\Privacy.cshtml.g.cs
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\Razor\Pages\Shared\_Layout.cshtml.g.cs
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\Razor\Pages\Sounds.cshtml.g.cs
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\Razor\Pages\Statistics.cshtml.g.cs
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\Razor\Pages\_ViewImports.cshtml.g.cs
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\Razor\Pages\_ViewStart.cshtml.g.cs
