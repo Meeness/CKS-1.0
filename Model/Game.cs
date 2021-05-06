@@ -5,8 +5,7 @@ using System.Threading.Tasks;
 
 namespace CKS_1._0.Model
 {
-    public class CombatKarts
+    public class Game
     {
-        
     }
 }
