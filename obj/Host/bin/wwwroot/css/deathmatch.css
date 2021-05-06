@@ -1,0 +1,165 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 0.5fr 0.9fr 1fr 1fr 1fr 1fr 0.5fr 0fr 3fr 1fr 0fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "Page-name Page-name Page-name Page-name . . . . . . . ."
+      ". . . . Script-name Script-name Script-name . . . . ."
+      "Team-x Team-x Team-x Team-x Team-x Team-x Team-x Team-x Team-x Team-x Team-x ."
+      "Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players ."
+      "Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players ."
+      "Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players ."
+      "Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players Teamx-players ."
+      ". . . . . . . . . . . ."
+      "players players players players players . . . . . . ."
+      "AVPLAYERS AVPLAYERS AVPLAYERS AVPLAYERS AVPLAYERS . Timer Timer Timer Timer Timer Timer"
+      "AVPLAYERS AVPLAYERS AVPLAYERS AVPLAYERS AVPLAYERS . Timer Timer Timer Timer Timer Timer"
+      ". . . . . . . . . . . .";
+  }
+  
+  .players { grid-area: players; background-color: rgba(14, 35, 78, 1); text-align: center; color: white; height: 84%; border-radius: 20px 20px 0px 0px; font-size: 20px!important;}
+  
+  .Timer { grid-area: Timer; text-align: center}
+  
+  .Page-name { grid-area: Page-name; }
+  
+  .Team-x { grid-area: Team-x;}
+  
+  .Team-y { grid-area: Team-y;}
+  
+  .Teamx-players { grid-area: Teamx-players; background-color: #C4C4C4;}
+  
+  .Teamy-players { grid-area: Teamy-players; background-color: #C4C4C4; }
+  
+  .Script-name { grid-area: Script-name; text-align: center; }
+  
+  .AVPLAYERS { grid-area: AVPLAYERS; background-color: #C4C4C4; overflow: hidden; overflow-y:scroll; }
+  
+
+  .playerslist{
+    height:200px; 
+    width:100%;
+    list-style-type:none;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .teamselect{
+    position: sticky;
+    left: 70%;
+  }
+
+  ul li::before {
+    content: "\2022";
+    color: green;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+    padding-bottom: 10px;
+
+  }
+  #teamx{
+        position: relative;
+        background-color: rgba(14, 35, 78, 1);
+        border: none;
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        width: 100%;
+        border-radius: 20px 20px 0px 0px;
+  }
+  
+  #teamy{
+        position: relative;
+        background-color: rgba(14, 35, 78, 1);
+        border: none;
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        width: 100%;
+        border-radius: 20px 20px 0px 0px;
+  }
+  #header{
+        font-size: 25px;
+        position: relative;
+        top: 50%;
+  }
+  #script{
+    font-size: 25px;
+    font-weight: 100;
+    text-align: center;
+  }
+  
+  #scripts{
+      background-color: rgba(14, 35, 78, 1);
+      color: white;
+      border-radius: 10px 10px 10px 10px;
+      padding: 2px;
+      font-weight: 100;
+      width: 90%;
+  }
+  
+  button {
+    padding: 7px 20px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+  }
+  
+  button:hover {
+    cursor: pointer;
+    background-color: #df0512;
+  }
+  /* common styles end */
+  
+  /* form */
+  
+  .time-input {
+    padding: 7px 5px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    background-color: #C4C4C4 ;
+  }
+  
+  select[name='format'] {
+    padding: 7px 20px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    margin: 0px 10px;
+    background-color: rgba(14, 35, 78, 1);
+    color: white;
+    text-align: left;
+  }
+  
+  .set-btn {
+    background-color: rgba(14, 35, 78, 1);
+    color: white;
+  }
+  /* form styles end */
+  
+  /* countdown */
+  .countdown {
+    font-size: 4rem;
+    text-align: center;
+    margin-top: 20px;
+  }
+  /* countdown styles end */
+  
+  /* buttons */
+  .stop-btn {
+    padding: 7px 20px;
+    background-color: rgba(14, 35, 78, 1);
+    color: white;
+  }
+  
+  .reset-btn {
+    margin-top: 10px;
+    padding: 7px 20px;
+    background-color: rgba(14, 35, 78, 1);
+    color: white;
+  }
+  /* buttons styles end */
