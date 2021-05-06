@@ -20,12 +20,15 @@ namespace CKS_1._0
 {
     var browserWindow = await Electron.WindowManager.CreateWindowAsync(new BrowserWindowOptions
     {
-        Width = 1600,
-        Height = 940,
-        Show = true
+        MinWidth = 1600,
+        MinHeight = 1200,
+        Show = false,
+
     });
     await browserWindow.WebContents.Session.ClearCacheAsync();
-    browserWindow.OnReadyToShow += () => browserWindow.Show();
+    browserWindow.OnReadyToShow += () => 
+    browserWindow.Show();
+    browserWindow.Maximize();
     browserWindow.SetTitle("Combat Karts Management System");
 }
         public Startup(IConfiguration configuration)
