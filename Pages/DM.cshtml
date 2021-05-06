@@ -1,18 +1,17 @@
 @page
-@model GameSettingsModel
+@model DMModel
 @{
-    ViewData["Title"] = "Game Settings";
+    ViewData["Title"] = "Team Death Match";
 }
 <section class="main">
+    <head>
+        <link rel="stylesheet" href="~/css/deathmatch.css" />
+    </head>
 <div class="grid-container">
   <div class="Page-name"><p id="header">GAME SETTINGS</p></div>
   <div class="Team-x">
     <label for="teamx"></label>
   <input type="text" id="teamx" name="team-name" value="Team-1">
-  </div>
-  <div class="Team-y">
-        <label for="teamy"></label>
-  <input type="text" id="teamy" name="team-name" value="Team-2">
   </div>
   <div class="Teamx-players">
   </div>
@@ -21,8 +20,8 @@
 <label for="scripts" id="script">Game script</label>
 <br>
 <select id="scripts">
-  <option value="team-reacing" selected>Team Mode</option>
-  <option value="/DM">Deathmatch</option>
+  <option value="/GameSettings">Team Mode</option>
+  <option value="deathmatch" selected>Deathmatch</option>
 </select>
   </div>
   <div class="players"><label id="script">Available players</label></div>
