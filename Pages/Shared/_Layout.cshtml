@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - CKS_1._0</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/deathmatch.css" />
+        <link rel="stylesheet" href="~/css/teammode.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+
 </head>
 <body>
     <header>
@@ -50,7 +53,10 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="~/js/deathmatch.js" asp-append-version="true"></script>
+    <script src="~/js/teammode.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

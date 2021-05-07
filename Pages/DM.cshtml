@@ -1,0 +1,108 @@
+@page
+@model DMModel
+@{
+    ViewData["Title"] = "Team Death Match";
+}
+<section class="main">
+    <head>
+        <link rel="stylesheet" href="~/css/deathmatch.css" />
+    </head>
+<div class="grid-container">
+  <div class="Page-name"><p id="header">GAME SETTINGS</p></div>
+  <div class="Team-x">
+    <label for="teamx"></label>
+  <input type="text" id="teamx" name="team-name" value="Team-1">
+  </div>
+  <div class="Teamx-players">
+  </div>
+  <div class="Teamy-players"></div>
+  <div class="Script-name">
+<label for="scripts" id="script">Game script</label>
+<br>
+<select id="scripts">
+  <option value="/GameSettings">Team Mode</option>
+  <option value="deathmatch" selected>Deathmatch</option>
+</select>
+  </div>
+  <div class="players"><label id="script">Available players</label></div>
+  <div class="AVPLAYERS">
+                  <ul class="playerslist">
+                <li>Player 1 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 2 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 3 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 4 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 5 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 6 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 7 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 8 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 9 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 10 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 11 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 12 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 13 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 14 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 15 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 16 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 17 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 18 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 19 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 20 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 21 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 22 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 23 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 24 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 25 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 26 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 27 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 28 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 29 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 30 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 31 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 32 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 33 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 34 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 35 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 36 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 37 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 38 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 39 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 40 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 41 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 42 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 43 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 44 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 45 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 46 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 47 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 48 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 49 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+                <li>Player 50 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
+            </ul>
+  </div>
+  <div class="Timer">
+        <div class="container">
+    <!-- form -->
+    <form class="form">
+      <!-- countdown time input field -->
+      <input type="number" min="1" class="time-input" placeholder="Enter Countdown">
+      <!-- options -->
+      <select name="format">
+        <option value="hours">Hours</option>
+        <option value="minutes">Minutes</option>
+        <option value="seconds">Seconds</option>
+      </select>
+      <!-- submit button or set button -->
+      <button type="submit" class="set-btn">SET</button>
+    </form>
+    <!-- countdown text -->
+    <p class="countdown">00 : 00 : 00</p>
+
+    <!-- buttons -->
+    <div class="buttons">
+      <button class="stop-btn" disabled>STOP</button>
+      <button class="reset-btn" disabled>RESET</button>
+    </div>
+  </div>
+  </div>
+</div>
+</section>
