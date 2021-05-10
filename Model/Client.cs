@@ -15,6 +15,7 @@ namespace CKS_1._0.Model
          {
              Inv = new Inventory();
          }
+
     }
     public enum ConnectionState {
         StateOne,
