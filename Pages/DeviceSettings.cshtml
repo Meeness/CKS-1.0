@@ -1,160 +1,66 @@
 @page
 @model DeviceSettingsModel
 @{
-    ViewData["Title"] = "Devices Settings";
+    ViewData["Title"] = "Devices Settings";  
 }
 
 <section class="main">
-<div class="text-center">
-    <h1 class="display-4" style="text-align: center;">Device Settings</h1>
+<head><link rel="stylesheet" href="~/css/devicesettings.css" /></head>
+<div class="grid-container">
+  <div class="Page-name"><p id="header">DEVICE SETTINGS</p></div>
+  <div class="select"><p id="header">Please select player</p></div>
+  <div class="player-name">
+    <select class="player-select">
+    <option value="0" selected>Player</option>
+    <option value="1">Player 1</option>
+    <option value="2">Player 2</option>
+    <option value="3">Player 3</option>
+    <option value="4">Player 4</option>
+    <option value="5">Player 5</option>
+    <option value="6">Player 6</option>
+    <option value="7">Player 7</option>
+    <option value="8">Player 8</option>
+    <option value="9">Player 9</option>
+    <option value="10">Player 10</option>
+    <option value="11">Player 11</option>
+    <option value="12">Player 12</option>
+  </select></div>
+  <div class="settings-box">
+    <dl class="option-settings">
+    <dd style="margin-bottom: 2.5rem;">ID <select class="player-id">
+    <option value="1ID" selected>1</option>
+    <option value="2ID">2</option>
+    <option value="3ID">3</option>
+    <option value="4ID">4</option>
+    <option value="5ID">5</option>
+    <option value="6ID">6</option>
+    <option value="7ID">7</option>
+    <option value="8ID">8</option>
+    <option value="9ID">9</option>
+    <option value="10ID">10</option>
+    <option value="11ID">11</option>
+    <option value="12ID">12</option>
+  </select></dd>
+    <dd style="margin-bottom: 2.5rem;">Health points <select class="player-health">
+    <option value="0" selected>100</option>
+    <option value="150">150</option>
+    <option value="200">200</option>
+    <option value="250">250</option>
+    <option value="350">350</option>
+  </select></dd>
+    <dd style="margin-bottom: 2.5rem;">Friendly Fire <select class="player-fire">
+    <option value="Yes" selected>Yes</option>
+    <option value="No">No</option>
+  </select></dd>
+    <dd>Shield Cooldown <select class="player-cooldown">
+    <option value="1s" selected>1s</option>
+    <option value="2s">2s</option>
+    <option value="3s">3s</option>
+    <option value="4s">4s</option>
+    <option value="5s">5s</option>
+  </select></dd>
+</dl>
+  <button class="apply">APPLY</button></div>
 </div>
 
-<div class="container">
-  <div class="gamers"> 
-  <h1>Connected devices</h1>
-  <p></p>
-</div>
-</div>
-
-
-<div class="settingstable">
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Device Name</th>
-      <th scope="col">Status</th>
-      <th scope="col">Battery Level</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Sub Machine Gun</td>
-      <td>Connected</td>
-      <td>90%</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Glock</td>
-      <td>Not Connected</td>
-      <td>85%</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Toy gun </td>
-      <td>Connected </td>
-      <td>100%</td>
-    </tr>
-     <tr>
-      <th scope="row">1</th>
-      <td>Sub Machine Gun</td>
-      <td>Connected</td>
-      <td>90%</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Glock</td>
-      <td>Not Connected</td>
-      <td>85%</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Toy gun </td>
-      <td>Connected </td>
-      <td>100%</td>
-    </tr>
-     <tr>
-      <th scope="row">1</th>
-      <td>Sub Machine Gun</td>
-      <td>Connected</td>
-      <td>90%</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Glock</td>
-      <td>Not Connected</td>
-      <td>85%</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Toy gun </td>
-      <td>Connected </td>
-      <td>100%</td>
-    </tr>
-     <tr>
-      <th scope="row">1</th>
-      <td>Sub Machine Gun</td>
-      <td>Connected</td>
-      <td>90%</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Glock</td>
-      <td>Not Connected</td>
-      <td>85%</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Toy gun </td>
-      <td>Connected </td>
-      <td>100%</td>
-    </tr>
-     <tr>
-      <th scope="row">1</th>
-      <td>Sub Machine Gun</td>
-      <td>Connected</td>
-      <td>90%</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Glock</td>
-      <td>Not Connected</td>
-      <td>85%</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Toy gun </td>
-      <td>Connected </td>
-      <td>100%</td>
-    </tr>
-     <tr>
-      <th scope="row">1</th>
-      <td>Sub Machine Gun</td>
-      <td>Connected</td>
-      <td>90%</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Glock</td>
-      <td>Not Connected</td>
-      <td>85%</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Toy gun </td>
-      <td>Connected </td>
-      <td>100%</td>
-    </tr>
-     <tr>
-      <th scope="row">1</th>
-      <td>Sub Machine Gun</td>
-      <td>Connected</td>
-      <td>90%</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Glock</td>
-      <td>Not Connected</td>
-      <td>85%</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Toy gun </td>
-      <td>Connected </td>
-      <td>100%</td>
-    </tr>
-  </tbody>
-</table>
-</div>
 </section>
