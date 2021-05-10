@@ -8,7 +8,12 @@ namespace CKS_1._0.Model.Wifi
 {
     public class Message{
         
-        public IPAddress IP {get;set;}
+        public List<Block> Blocks {get;set;}
+
+        public Message()
+        {
+            Blocks = new List<Block>();
+        }
 
     }
 }

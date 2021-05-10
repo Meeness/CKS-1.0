@@ -7,5 +7,9 @@ namespace CKS_1._0.Model
 {
     public class Game
     {
+        public Game()
+        {
+            
+        }
     }
 }
