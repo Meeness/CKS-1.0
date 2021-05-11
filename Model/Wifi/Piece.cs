@@ -9,6 +9,14 @@ namespace CKS_1._0.Model.Wifi
     public class Piece{
         
         public byte[] Bytes {get;set;}
-        
+        public ReadingDirection ReadDirection {get;set;}
+        public Piece()
+        {
+            
+        }   
+    }
+    public enum ReadingDirection{
+        Forwards,
+        Backwards
     }
 }

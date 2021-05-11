@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\CKS-1.0.csproj": {}
+    "C:\\Users\\LarsV\\Documents\\GitHub\\CKS-1.0\\CKS-1.0.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\CKS-1.0.csproj": {
+    "C:\\Users\\LarsV\\Documents\\GitHub\\CKS-1.0\\CKS-1.0.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\CKS-1.0.csproj",
+        "projectUniqueName": "C:\\Users\\LarsV\\Documents\\GitHub\\CKS-1.0\\CKS-1.0.csproj",
         "projectName": "CKS-1.0",
-        "projectPath": "C:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\CKS-1.0.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\obj\\",
+        "projectPath": "C:\\Users\\LarsV\\Documents\\GitHub\\CKS-1.0\\CKS-1.0.csproj",
+        "packagesPath": "C:\\Users\\LarsV\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LarsV\\Documents\\GitHub\\CKS-1.0\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\LarsV\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -59,6 +59,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[5.0.5, 5.0.5]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x64",
+              "version": "[5.0.5, 5.0.5]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+              "version": "[5.0.5, 5.0.5]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -67,7 +81,12 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     }

@@ -10,10 +10,11 @@ namespace CKS_1._0.Model
     {
          public ConnectionState ConState {get;set;}
          public IPAddress IP {get;set;}
-         public Inventory Inv {get;set;}
+         public Inventory LWInv {get;set;}
+         public Inventory CKInv {get;set;}
          public Client()
          {
-             Inv = new Inventory();
+             
          }
 
     }
