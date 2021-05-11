@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace CKS_1._0.Model
 {
     public class Item{
-
-        public Item()
+        public int Id{get;set;}
+        public Item(int id)
         {
-            
+            Id=id;
         }
     }
 }
