@@ -7644,23 +7644,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LarsV\\.nuget\\packages\\": {},
+    "C:\\Users\\Lenovo\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LarsV\\Documents\\GitHub\\CKS-1.0\\CKS-1.0.csproj",
+      "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\CKS-1.0.csproj",
       "projectName": "CKS-1.0",
-      "projectPath": "C:\\Users\\LarsV\\Documents\\GitHub\\CKS-1.0\\CKS-1.0.csproj",
-      "packagesPath": "C:\\Users\\LarsV\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LarsV\\Documents\\GitHub\\CKS-1.0\\obj\\",
+      "projectPath": "C:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\CKS-1.0.csproj",
+      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\LarsV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -7705,7 +7705,6 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-<<<<<<< HEAD
             "version": "[5.0.4, 5.0.4]"
           },
           {
@@ -7715,17 +7714,6 @@
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
             "version": "[5.0.4, 5.0.4]"
-=======
-            "version": "[5.0.5, 5.0.5]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Runtime.win-x64",
-            "version": "[5.0.5, 5.0.5]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-            "version": "[5.0.5, 5.0.5]"
->>>>>>> 8ef2e9e85e22e2c54765e2478a4f27b6978ee268
           }
         ],
         "frameworkReferences": {
@@ -7736,12 +7724,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
-      }
-    },
-    "runtimes": {
-      "win-x64": {
-        "#import": []
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {
@@ -7749,5 +7732,13 @@
         "#import": []
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
