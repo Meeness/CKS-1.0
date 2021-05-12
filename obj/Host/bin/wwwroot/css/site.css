@@ -111,7 +111,7 @@ body {
 }
 
 
-/* For homepage here */
+/* For homepage here> Needs grid  */
 .gamers{
   width:900px;
   background-color: #0e234e;
@@ -131,8 +131,6 @@ background-color:#df0512;
 align-self: center;
 color:white;
 overflow-y: scroll;
-
-
 }
 
 
