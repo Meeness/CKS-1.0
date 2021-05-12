@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using CKS_1._0.Model;
 
 namespace CKS_1._0.Pages
 {
     public class GameSettingsModel : PageModel
     {
         private readonly ILogger<GameSettingsModel> _logger;
+        public CombatKarts CK = CombatKarts.Instance;
 
         public GameSettingsModel(ILogger<GameSettingsModel> logger)
         {
@@ -20,6 +22,11 @@ namespace CKS_1._0.Pages
         public void OnGet()
         {
 
+        }
+        protected void TeamSelect(object sender, EventArgs e)
+        {
+            
+            //CK.ActiveGame.ChangeTeam(Player, IDictionary?, anotherid?);
         }
     }
 }

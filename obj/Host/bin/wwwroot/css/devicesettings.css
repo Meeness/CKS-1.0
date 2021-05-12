@@ -1,0 +1,62 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    gap: 0px 0px;
+  }
+  .Page-name { grid-area: 1 / 1 / 2 / 5; }
+  .select { grid-area: 3 / 2 / 4 / 6; }
+  .player-name { grid-area: 4 / 2 / 5 / 12; }
+  .settings-box { grid-area: 5 / 2 / 10 / 12; position: relative; top: 4%; background-color: #C4C4C4; height: 150%;}
+
+  #header{
+    font-size: 25px;
+    position: relative;
+    top: 50%;
+  }
+
+  .player-select{
+      border: none;
+      position: relative;
+    top: 60%;
+    width: 100%;
+    font-size: 22px;
+    background-color: rgba(14, 35, 78, 1);
+    color: white;
+  }
+
+  .option-settings{
+    position: relative;
+    top: 20%;
+    left: 4%;
+    font-weight: 600;
+    width: 20%;
+    font-size: 19px;
+  }
+
+  .player-id{
+    position: relative;
+    left: 85%;
+  }
+
+  .player-health{
+    position: relative;
+    left: 26%;
+  }
+
+  .player-fire{
+    position: relative;
+    left: 34%;
+  }
+
+  .player-cooldown{
+    position: absolute;
+    left: 97%;
+  }
+
+  .apply{
+    position: absolute;
+    left: 88%;
+    bottom: 4%;
+    background-color: white;
+  }
