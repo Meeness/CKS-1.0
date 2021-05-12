@@ -59,12 +59,12 @@
       {
         <li>
           @player.Client.CKInv.Items[0].ToString()
-          <select class="teamselect">
+          <select class="teamselect changeteam" runat="server" AutoPostBack="True" onselectedindexchanged="TeamSelect">
             <option>Back to Available Players</option>
             <option>@Model.CK.ActiveGame.Gamemode.Teams[0].Name</option>
             <option>@Model.CK.ActiveGame.Gamemode.Teams[1].Name</option>
           </select>
-          <asp:DropDownList ID="teamselect" runat="server" AutoPostBack="True" onselectedindexchanged="TeamSelect">
+          <asp:DropDownList id="teamselect" runat="server" AutoPostBack="True" onselectedindexchanged="TeamSelect">
             <asp:ListItem>Back to Available Players</asp:ListItem>
             <asp:ListItem value="1 1 1">@Model.CK.ActiveGame.Gamemode.Teams[0].Name</asp:ListItem>
             <asp:ListItem value="2">@Model.CK.ActiveGame.Gamemode.Teams[1].Name</asp:ListItem>
@@ -74,6 +74,7 @@
       }
       <li>Player 1 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
     </ul>
+    <p id="test">her</p>
   </div>
   <div class="Timer">
         <div class="container">
