@@ -9,22 +9,11 @@
 <div class="grid-container">
   <div class="Page-name"><p id="header">DEVICE SETTINGS</p></div>
   <div class="select"><p id="header">Please select player</p></div>
-  <div class="player-name">
-    <select class="player-select">
-    <option value="0" selected>Player</option>
-    <option value="1">Player 1</option>
-    <option value="2">Player 2</option>
-    <option value="3">Player 3</option>
-    <option value="4">Player 4</option>
-    <option value="5">Player 5</option>
-    <option value="6">Player 6</option>
-    <option value="7">Player 7</option>
-    <option value="8">Player 8</option>
-    <option value="9">Player 9</option>
-    <option value="10">Player 10</option>
-    <option value="11">Player 11</option>
-    <option value="12">Player 12</option>
-  </select></div>
+
+
+<div class="guns"> 
+<button class="accordion">Player 1</button>
+<div class="panel">
   <div class="settings-box">
     <dl class="option-settings">
     <dd style="margin-bottom: 2.5rem;">ID <select class="player-id">
@@ -52,24 +41,37 @@
     <option value="Yes" selected>Yes</option>
     <option value="No">No</option>
   </select></dd>
-    <dd>Shield Cooldown <select class="player-cooldown">
+    <dd style="margin-bottom: 2.5rem;">Shield Cooldown <select class="player-cooldown">
     <option value="1s" selected>1s</option>
     <option value="2s">2s</option>
     <option value="3s">3s</option>
     <option value="4s">4s</option>
     <option value="5s">5s</option>
   </select></dd>
+  <dd style="margin-bottom: 2.5rem;">Invulnerability Duration <select class="player-invulnerability">
+    <option value="0.07s" selected>0.07s</option>
+    <option value="0.09s">0.09s</option>
+    <option value="0.1s">0.1s</option>
+  </select></dd>
+    <dd style="margin-bottom: 2.5rem;">Shock Duration <select class="player-shock">
+    <option value="0.08s" selected>0.08s</option>
+    <option value="0.1s">0.1s</option>
+    <option value="0.12s">0.12s</option>
+  </select></dd>
+  <dd style="margin-bottom: 2.5rem;">Regeneration period<select class="player-regeneration">
+    <option value="Yes" selected>Yes</option>
+    <option value="No">No</option>
+  </select></dd>
+    <dd style="margin-bottom: 2.5rem;">Autorevival duration<select class="player-autorevival">
+    <option value="Yes" selected>Yes</option>
+    <option value="No">No</option>
+  </select></dd>
 </dl>
+  
   <button class="apply">APPLY</button></div>
-
-
-
-
-<div class="guns"> 
-<button class="accordion">Player 1</button>
-<div class="panel">
-  <p>Lorem ipsum...</p>
+  
 </div>
+
 
 <button class="accordion">Section 2</button>
 <div class="panel">
@@ -82,22 +84,7 @@
 </div>
 </div>
 </div>
-</section><div class="guns"> 
-<button class="accordion">Player or Gun 1</button>
-<div class="panel">
-  <p>Lorem ipsum...</p>
-</div>
-
-<button class="accordion">Player or Gun 2</button>
-<div class="panel">
-  <p>Lorem ipsum...</p>
-</div>
-
-<button class="accordion">Player or Gun 3</button>
-<div class="panel">
-  <p>Lorem ipsum...</p>
-</div>
-</div>
+</section>
 
 
 <script>
