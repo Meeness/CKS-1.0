@@ -15617,6 +15617,9 @@
     "CSharpLanguageVersion": 900
   },
   "RootNamespace": "CKS_1._0",
+<<<<<<< HEAD
+  "Documents": [],
+=======
   "Documents": [
     {
       "FilePath": "c:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\Pages\\AppSettings.cshtml",
@@ -15679,5 +15682,6 @@
       "FileKind": "mvc"
     }
   ],
+>>>>>>> 7f2ec4348987fadb2ed7a85f08ad2b8cf8c38665
   "SerializationFormat": "0.2"
 }
