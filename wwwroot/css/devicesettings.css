@@ -4,7 +4,7 @@
     grid-template-rows: repeat(14, 1fr);
     gap: 0px 0px;
   }
-  .Page-name { grid-area: 1 / 1 / 2 / 5; }
+  .Page-name { grid-area: 1 / 2 / 2 / 5; }
   .select { grid-area: 1 / 2 / 4 / 6; }
   .player-name { grid-area: 1 / 2 / 5 / 12; }
   .settings-box { grid-area: 4 / 2 / 7 / 12; position: relative; top: 4%; background-color: #C4C4C4; height: 150%;}
@@ -13,6 +13,10 @@
     font-size: 25px;
     position: relative;
     top: 50%;
+  }
+
+  .container{
+    max-width: 100%;
   }
 
   .player-select{
@@ -40,42 +44,42 @@
 
   .player-id{
     position: relative;
-    left: 248px;
+    left: 28%;
   }
 
   .player-health{
     position: relative;
-    left: 17%;
+    left: 28%;
   }
 
   .player-fire{
     position: relative;
-    left: 155px;
+    left: 28%;
   }
 
   .player-cooldown{
     position: relative;
-    left: 124px;
+    left: 28%;
   }
 
   .player-invulnerability{
     position: relative;
-    left: 5%;
+    left:28%;
   }
 
   .player-shock{
     position: relative;
-    left: 114px;
+    left:28%;
   }
 
   .player-regeneration{
     position: relative;
-    left: 114px;
+    left: 28%;
   }
 
   .player-autorevival{
     position: relative;
-    left: 114px;
+    left: 28%;
   }
 
   .apply{
@@ -117,4 +121,25 @@
   background-color: white;
   display: none;
   overflow: hidden;
+}
+
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row{
+  overflow: scroll;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
