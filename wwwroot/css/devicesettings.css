@@ -82,6 +82,141 @@
     left: 28%;
   }
 
+  .bleeding-period{
+    position:relative;
+    left: 28%;
+  }
+
+  .cartridges-revival{
+    position:relative;
+    left: 28%;
+  }
+
+  .vampire-mode{
+    position:relative;
+    left: 28%;
+  }
+
+  .taggers-language{
+    position:relative;
+    left: 28%;
+  }
+  .infection-period{
+    position:relative;
+    left: 28%;
+  }
+
+  .infection-amount{
+    position:relative;
+    left: 28%;
+  }
+
+  .timetodie{
+    padding-top: 5px;
+    position:relative;
+    left: 28%;
+  }
+
+  .background-brightness{
+    position:relative;
+    left: 28%;
+  }
+/*second column of settings start here */
+.clips{
+  position:relative;
+  left: 28%;
+}
+.cartridges{
+  position:relative;
+  left: 28%;
+}
+.burst{
+  position:relative;
+  left: 28%;
+}
+.fire-rate{
+  position:relative;
+  left: 28%;
+}
+.fire-damage{
+  position:relative;
+  left: 28%;
+}
+.reload-duration{
+  position:relative;
+  left: 28%;
+}
+.autoreload-mode{
+  position:relative;
+  left: 28%;
+}
+.overheating{
+  position:relative;
+  left: 28%;
+}
+.infrared-power{
+  position:relative;
+  left: 28%;
+}
+.silencer-mode{
+  position:relative;
+  left: 28%;
+}
+.idle-period{
+  position:relative;
+  left: 28%;
+}
+.vibration-mode{
+  position:relative;
+  left: 28%;
+}
+.screen-mode{
+  position:relative;
+  left: 28%;
+}
+.volume-shooting{
+  position:relative;
+  left: 28%; 
+}
+.volume-main{
+  position:relative;
+  left: 28%; 
+}
+.sensor-mode{
+  position:relative;
+  left: 28%; 
+}
+.startup-delay-local-game{
+  position:relative;
+  left: 28%; 
+}
+.save-cartridges{
+  position:relative;
+  left: 28%; 
+}
+.break-period{
+  position:relative;
+  left: 28%;
+}
+.selector-mode{
+  position:relative;
+  left: 28%;
+}
+
+.apply-btn {
+  position:relative;
+  left: 40%;
+  padding: 7px 20px;
+  background-color: rgba(14, 35, 78, 1);
+  color: white;
+}
+button:hover {
+  cursor: pointer;
+  background-color: #df0512;
+}
+
+
+/*apply button*/
   .apply{
     position: absolute;
     left: 88%;
@@ -112,7 +247,7 @@
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active, .accordion:hover {
-  background-color: #ccc;
+  background-color: #df0512;
 }
 
 /* Style the accordion panel. Note: hidden by default */
@@ -126,10 +261,10 @@
 
 /* Create four equal columns that floats next to each other */
 .column {
+
   float: left;
   width: 25%;
-  padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
+ /*  height: 300px; Should be removed. Only for demonstration */
 }
 
 /* Clear floats after the columns */
@@ -143,3 +278,51 @@
   overflow: scroll;
   overflow-x: hidden; /* Hide horizontal scrollbar */
 }
+
+/* Accordion contents adjust */
+.column1{
+padding: 0px
+
+}
+.column1 li{
+
+  list-style-type: none;
+  margin: 10px;
+  padding: 10px;
+
+}
+
+.column2{
+padding-bottom: 0px;
+
+}
+
+.column2 li{
+
+  list-style-type: none;
+  margin: 10px;
+  padding: 10px;
+
+}
+
+.column3 {
+  padding: 0px
+}
+.column3 li{
+  list-style-type: none;
+  margin: 10px;
+  padding: 10px;
+}
+
+.column4{
+  padding: 0px
+}
+
+.column4 li{
+  list-style-type: none;
+  margin: 10px;
+  padding: 10px;
+}
+
+/* Create four equal columns that floats next to each other */
+

@@ -8,7 +8,7 @@
 <head><link rel="stylesheet" href="~/css/devicesettings.css" /></head>
 <div class="grid-container">
   <div class="Page-name"><p id="header">DEVICE SETTINGS</p></div>
-  <div class="select"><p id="header">Please select player</p></div>
+  <div class="select"><p id="header">Select a player to change the settings</p></div>
 
 
 <div class="guns"> 
@@ -16,7 +16,7 @@
 <div class="panel">
   <div class="row">
   <div class="column" style="background-color:white;">
-    <ul>
+    <ul class="column1">
       <li>ID</li>
       <li>Health points</li>
       <li>Friendly Fire</li>
@@ -32,12 +32,15 @@
       <li>Decreasing health period by infection</li>
       <li>Decreasing health amount by infection</li>
       <li>Time to die by infection</li>
-      <li>Background Brightness Off</li>
-      <li>Damaged Glow</li>
+      <li>Background Brightness</li>
+      <li>Damaged Glow Color</li>
     </ul>
+
+<button type="submit" class="apply-btn">APPLY</button>
+
   </div>
   <div class="column" style="background-color:white;">
-    <ul>
+    <ul class="column2">
       <li><select class="player-id"> 
     <option value="1ID" selected>1</option>
     <option value="2ID">2</option>
@@ -60,8 +63,8 @@
     <option value="350">350</option>
   </select></li>
   <li><select class="player-fire">
-    <option value="Yes" selected>Yes</option>
-    <option value="No">No</option>
+    <option value="Yes" selected>On</option>
+    <option value="No">Off</option>
   </select></li>
   <li><select class="player-cooldown">
     <option value="1s" selected>1s</option>
@@ -88,25 +91,225 @@
     <option value="Yes" selected>Yes</option>
     <option value="No">No</option>
   </select></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li><select class="bleeding-period">
+    <option value="Yes" selected>Yes</option>
+    <option value="No">No</option>
+  </select></li>
+  <li><select class="cartridges-revival">
+    <option value="Yes" selected>Yes</option>
+    <option value="No">No</option>
+  </select></li>
+  <li><select class="vampire-mode">
+    <option value="No" selected>No</option>
+    <option value="Yes">Yes</option>
+  </select></li>
+  <li><select class="taggers-language">
+    <option value="Language 1" selected>Language 1</option>
+    <option value="Language 2">Language 2</option>
+    <option value="Language 3">Language 3</option>
+    <option value="Language 4">Language 4</option>
+    <option value="Language 5">Language 5</option>
+  </select></li>
+  <li><select class="infection-period">
+  <option value="30s" selected>30 seconds</option>
+    <option value="45s">45 seconds</option>
+    <option value="1m">1 minute</option>
+    <option value="1.5m">1.30 minutes </option>
+    <option value="2m">2 minutes </option>
+  </select></li>
+  <li><select class="infection-amount">
+    <option value="10" selected>10</option>
+    <option value="20">20</option>
+    <option value="30">30</option>
+    <option value="40">40</option>
+    <option value="50">50</option>
+  </select></li>
+  <li><input type="text" id="timetodie" value="10"></li>
+  <li><select class="background-brightness">
+    <option value="50" selected>50%</option>
+    <option value="40">40%</option>
+    <option value="30">30%</option>
+    <option value="20">20%</option>
+    <option value="10">10%</option>
+  </select></li>
+  <li><select class="damaged-color">
+    <option value="red" selected>Red</option>
+    <option value="blue">Blue</option>
+    <option value="green">Green</option>
+    <option value="yellow">Yellow</option>
+    <option value="pink">Pink</option>
+  </select></li>
 
     </ul>
   </div>
-  <div class="column" style="background-color:#ccc;">
-    <h2>Column 3</h2>
-    <p>Some text..</p>
+
+  <div class="column" style="background-color:white;">
+    <ul class="column3">
+      <li>Clips</li>
+      <li>Cartridges</li>
+      <li>Burst</li>
+      <li>Fire rate, shots per minute</li>
+      <li>Damage</li>
+      <li>Reload Duration in seconds</li>
+      <li>Autoreload Mode</li>
+      <li>Overheating</li>
+      <li>Infrared Power in %</li>
+      <li>Silencer Mode</li>
+      <li>Idle Period</li>
+      <li>Vibration Mode</li>
+      <li>Screen Mode</li>
+      <li>Volume of Shooting</li>
+      <li>Volume</li>
+      <li>Sensor Mode</li>
+      <li>Startup delay in local game</li>
+      <li>Save cartridges</li>
+      <li>Break Period</li>
+      <li>Selector switch operating mode</li>
+    </ul>
   </div>
-  <div class="column" style="background-color:#ddd;">
-    <h2>Column 4</h2>
-    <p>Some text..</p>
+  <div class="column" style="background-color:white;">
+    <ul class="column4">
+      <li><select class="clips"> 
+    <option value="10" selected>10</option> 
+    <option value="8">8</option>
+    <option value="6">6</option>
+    <option value="4">4</option>
+    <option value="2">2</option>
+    <option value="1">1</option>
+  </select></li>
+    <li><select class="cartridges">
+    <option value="30" selected>30</option>
+    <option value="40">40</option>
+    <option value="50">50</option>
+    <option value="60">60</option>
+    <option value="80">80</option>
+  </select></li>
+  <li><select class="burst">
+    <option value="Yes" selected>On</option>
+    <option value="No">Off</option>
+  </select></li>
+  <li><select class="fire-rate">
+    <option value="500" selected>500</option>
+    <option value="400">400</option>
+    <option value="300">300</option>
+    <option value="200">200</option>
+    <option value="100">100</option>
+  </select></li>
+  <li><select class="fire-damage">
+    <option value="25" selected>25</option>
+    <option value="35">35</option>
+    <option value="40">40</option>
+    <option value="50">50</option>
+  </select></li>
+  <li><select class="reload-duration">
+    <option value="0.3s" selected>0.08s</option>
+    <option value="0.1s">0.1s</option>
+    <option value="0.2s">0.2s</option>
+    <option value="0.4s">0.4s</option>
+  </select></li>
+  <li><select class="autoreload-mode">
+    <option value="Yes" selected>On</option>
+    <option value="No">Off</option>
+  </select></li>
+  <li><select class="overheating">
+    <option value="Yes" selected>On</option>
+    <option value="No">Off</option>
+  </select></li>
+  <li><select class="infrared-power">
+    <option value="100" selected>100%</option>
+    <option value="90">90%</option>
+    <option value="80">80%</option>
+    <option value="70">70%</option>
+    <option value="60">60%</option>
+    <option value="50">50%</option>
+    <option value="40">40%</option>
+    <option value="30">30%</option>
+    <option value="20">20%</option>
+    <option value="10">10%</option>    
+    <option value="0">0%</option>
+  </select></li>
+  <li><select class="silencer-mode">
+    <option value="Off" selected>Off</option>
+    <option value="On">On</option>
+  </select></li>
+  <li><select class="idle-period">
+    <option value="01:00:00" selected>01 H : 00 M : 00 S</option>
+    <option value="00:45:00">00 H : 45 M : 00 S</option>
+    <option value="00:30:00">00 H : 30 M : 00 S</option>
+    <option value="00:15:00">00 H : 15 M : 00 S</option>
+    <option value="10:00:00">00 H : 10 M : 00 S</option>
+  </select></li>
+  <li><select class="vibration-mode">
+    <option value="onevents" selected>During Events</option>
+    <option value="Language 2">Normal</option>
+    <option value="Language 3">During DM</option>
+  </select></li>
+  <li><select class="screen-mode">
+    <option value="Yes" selected>On</option>
+    <option value="No">Off</option>
+  </select></li>
+  <li><select class="volume-shooting">
+    <option value="100" selected>100%</option>
+    <option value="90">90%</option>
+    <option value="80">80%</option>
+    <option value="70">70%</option>
+    <option value="60">60%</option>
+    <option value="50">50%</option>
+    <option value="40">40%</option>
+    <option value="30">30%</option>
+    <option value="20">20%</option>
+    <option value="10">10%</option>    
+    <option value="0">0%</option>
+  </select></li>
+  <li><select class="volume-main">
+    <option value="100" selected>100%</option>
+    <option value="90">90%</option>
+    <option value="80">80%</option>
+    <option value="70">70%</option>
+    <option value="60">60%</option>
+    <option value="50">50%</option>
+    <option value="40">40%</option>
+    <option value="30">30%</option>
+    <option value="20">20%</option>
+    <option value="10">10%</option>    
+    <option value="0">0%</option>
+  </select></li>
+  <li><select class="sensor-mode">
+    <option value="break" selected>Break</option>
+    <option value="option2">what </option>
+    <option value="option3">to</option>
+    <option value="option4">place</option>
+    <option value="option5">here?</option>
+  </select></li>
+<li><select class="startup-delay-local-game">
+    <option value="120s" >120 seconds</option>
+    <option value="90s">90 seconds</option>
+    <option value="60s">60 seconds</option>
+    <option value="40s">40 seconds</option>
+    <option value="30s">30 seconds</option>
+    <option value="20s">20 seconds</option>
+    <option value="15s">15 seconds</option>
+    <option value="10s"selected>10 seconds</option>
+    <option value="05s">05 seconds</option>
+    <option value="off">Off</option>    
+  </select></li>
+<li><select class="save-cartridges">
+    <option value="Yes" selected>On</option>
+    <option value="No">Off</option>
+  </select></li>
+<li><select class="break-period">
+    <option value="05s" selected>05 seconds</option>
+    <option value="03s">03 seconds</option>
+    <option value="02s">02 seconds</option>
+    <option value="01s">01 second</option>
+    <option value="off">No break</option>
+  </select></li>
+<li><select class="selector-mode">
+    <option value="fixed" selected>Fixed</option>
+    <option value="option2">not fixed</option>
+  </select></li>
+
+    </ul>
   </div>
 </div>
 </div>
@@ -115,8 +318,9 @@
 <div class="panel">
   <p>Lorem ipsum...</p>
 </div>
-</div>
-</div>
+
+</div>  
+</div>  
 </section>
 
 

@@ -50,7 +50,7 @@
     position: sticky;
     left: 70%;
   }
-
+/*
   ul li::before {
     content: "\2022";
     color: green;
@@ -59,8 +59,9 @@
     width: 1em;
     margin-left: -1em;
     padding-bottom: 10px;
-
-  }
+ }
+ */
+ 
   #teamx{
         position: relative;
         background-color: rgba(14, 35, 78, 1);
