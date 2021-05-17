@@ -256,6 +256,10 @@ button:hover {
   background-color: white;
   display: none;
   overflow: hidden;
+  overflow: scroll;
+  overflow-x: hidden;
+  max-height: 500px;
+  
 }
 
 
@@ -275,7 +279,6 @@ button:hover {
 }
 
 .row{
-  overflow: scroll;
   overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
@@ -322,6 +325,10 @@ padding-bottom: 0px;
   list-style-type: none;
   margin: 10px;
   padding: 10px;
+}
+
+.accordion{
+  margin-bottom: 1px;
 }
 
 /* Create four equal columns that floats next to each other */
