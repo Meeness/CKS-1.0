@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LarsV\\Documents\\GitHub\\CKS-1.0\\CKS-1.0.csproj": {}
+    "C:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\CKS-1.0.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LarsV\\Documents\\GitHub\\CKS-1.0\\CKS-1.0.csproj": {
+    "C:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\CKS-1.0.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LarsV\\Documents\\GitHub\\CKS-1.0\\CKS-1.0.csproj",
+        "projectUniqueName": "C:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\CKS-1.0.csproj",
         "projectName": "CKS-1.0",
-        "projectPath": "C:\\Users\\LarsV\\Documents\\GitHub\\CKS-1.0\\CKS-1.0.csproj",
-        "packagesPath": "C:\\Users\\LarsV\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LarsV\\Documents\\GitHub\\CKS-1.0\\obj\\",
+        "projectPath": "C:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\CKS-1.0.csproj",
+        "packagesPath": "C:\\Users\\Henry Moon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\LarsV\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Henry Moon\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

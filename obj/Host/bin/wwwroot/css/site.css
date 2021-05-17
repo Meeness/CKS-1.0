@@ -60,12 +60,11 @@ html {
 
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
-  width:90%;
-  position:fixed;
+  position:relative;
   right:0;
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
+  padding-left: 200px;
 }
 .footer {
   position: absolute;
@@ -112,7 +111,7 @@ body {
 }
 
 
-/* For homepage here */
+/* For homepage here> Needs grid  */
 .gamers{
   width:900px;
   background-color: #0e234e;
@@ -132,8 +131,6 @@ background-color:#df0512;
 align-self: center;
 color:white;
 overflow-y: scroll;
-
-
 }
 
 
