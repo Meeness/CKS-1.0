@@ -8,24 +8,35 @@
   <div class="Page-name"><p id="header">GAME SETTINGS</p></div>
   <div class="Team-x">
     <label for="teamx"></label>
-  <input type="text" id="teamx" name="team-name" value="Team-1">
+    <form method="post">
+      <input type="hidden" value="0" name="teamindex"/>
+      <input type="text" id="teamx" name="teamname" value="@Model.CK.ActiveGame.Gamemode.Teams[0].Name" onfocusout="this.form.submit()">
+    </form>
   </div>
   <div class="Team-y">
-        <label for="teamy"></label>
-  <input type="text" id="teamy" name="team-name" value="Team-2">
+    <label for="teamy"></label>
+    <form method="post">
+      <input type="hidden" value="1" name="teamindex"/>
+      <input type="text" id="teamy" name="teamname" value="@Model.CK.ActiveGame.Gamemode.Teams[1].Name" onfocusout="this.form.submit()">
+    </form>
   </div>
+  <p>@Model.test</p>
   <div class="Teamx-players">
     <ul class="playerslist">
       @foreach (var player in Model.CK.ActiveGame.Gamemode.Teams[0].Players)
       {
         <li>
+          
           @player.Client.CKInv.Items[0].ToString()
-          <select>
-            <option>@Model.CK.ActiveGame.Gamemode.Teams[0].Name</option>
-            <option>@Model.CK.ActiveGame.Gamemode.Teams[1].Name</option>
-            <option>Back to Available Players</option>
-          </select>
-          </li>
+          <form method="post">
+            <select class="teamselect" name="teamselect" onchange="this.form.submit()">
+              <option value="@player.Id 0">Available Players</option>
+              @foreach (var team in Model.CK.ActiveGame.Gamemode.Teams){
+                <option value="@player.Id @team.Id">@team.Name</option>
+              }
+            </select>
+          </form>
+        </li>
       }
     </ul>
   </div>
@@ -34,16 +45,21 @@
       @foreach (var player in Model.CK.ActiveGame.Gamemode.Teams[1].Players)
       {
         <li>
+          
           @player.Client.CKInv.Items[0].ToString()
-          <select>
-            <option>@Model.CK.ActiveGame.Gamemode.Teams[1].Name</option>
-            <option>@Model.CK.ActiveGame.Gamemode.Teams[0].Name</option>
-            <option>Back to Available Players</option>
-          </select>
-          </li>
+          <form method="post">
+            <select class="teamselect" name="teamselect" onchange="this.form.submit()">
+              <option value="@player.Id 0">Available Players</option>
+              @foreach (var team in Model.CK.ActiveGame.Gamemode.Teams){
+                <option value="@player.Id @team.Id">@team.Name</option>
+              }
+            </select>
+          </form>
+        </li>
       }
     </ul>
   </div>
+  
   <div class="Script-name">
 <label for="scripts" id="script">Game script</label>
 <br>
@@ -58,23 +74,19 @@
       @foreach (var player in Model.CK.ActiveGame.AvailPlayers)
       {
         <li>
+          
           @player.Client.CKInv.Items[0].ToString()
-          <select class="teamselect changeteam" runat="server" AutoPostBack="True" onselectedindexchanged="TeamSelect">
-            <option>Back to Available Players</option>
-            <option>@Model.CK.ActiveGame.Gamemode.Teams[0].Name</option>
-            <option>@Model.CK.ActiveGame.Gamemode.Teams[1].Name</option>
-          </select>
-          <asp:DropDownList id="teamselect" runat="server" AutoPostBack="True" onselectedindexchanged="TeamSelect">
-            <asp:ListItem>Back to Available Players</asp:ListItem>
-            <asp:ListItem value="1 1 1">@Model.CK.ActiveGame.Gamemode.Teams[0].Name</asp:ListItem>
-            <asp:ListItem value="2">@Model.CK.ActiveGame.Gamemode.Teams[1].Name</asp:ListItem>
-          </asp:DropDownList>
-
+          <form method="post">
+            <select class="teamselect" name="teamselect" onchange="this.form.submit()">
+              <option value="">Available Players</option>
+              @foreach (var team in Model.CK.ActiveGame.Gamemode.Teams){
+                <option value="@player.Id @team.Id">@team.Name</option>
+              }
+            </select>
+          </form>
         </li>
       }
-      <li>Player 1 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
     </ul>
-    <p id="test">her</p>
   </div>
   <div class="Timer">
         <div class="container">
