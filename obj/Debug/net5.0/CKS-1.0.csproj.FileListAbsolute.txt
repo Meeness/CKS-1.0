@@ -51,3 +51,14 @@ C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\ref\CKS-1.0.dll
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\CKS-1.0.pdb
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\CKS-1.0.genruntimeconfig.cache
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\Razor\Pages\DM.cshtml.g.cs
+C:\Users\LarsV\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\CKS-1.0.csprojAssemblyReference.cache
+C:\Users\LarsV\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\CKS-1.0.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LarsV\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\CKS-1.0.AssemblyInfoInputs.cache
+C:\Users\LarsV\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\CKS-1.0.AssemblyInfo.cs
+C:\Users\LarsV\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\CKS-1.0.csproj.CoreCompileInputs.cache
+C:\Users\LarsV\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\CKS-1.0.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\LarsV\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\CKS-1.0.RazorAssemblyInfo.cache
+C:\Users\LarsV\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\CKS-1.0.RazorAssemblyInfo.cs
+C:\Users\LarsV\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\CKS-1.0.dll
+C:\Users\LarsV\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\ref\CKS-1.0.dll
+C:\Users\LarsV\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\CKS-1.0.pdb

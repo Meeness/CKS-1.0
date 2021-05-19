@@ -30,10 +30,12 @@ namespace CKS_1._0.Model
         public void SelectGameMode(int id){
             if(Gamemode!=null){
                 foreach(Team team in Gamemode.Teams){
+
                     foreach(Player player in team.Players){
-                        team.RemovePlayer(player);
                         player.TeamId=0;
+                        AvailPlayers.Add(player);
                     }
+                    team.Players=new List<Player>();
                 }
             }
             Gamemode G =GamemodeList.Find(x=>x.Id==id);

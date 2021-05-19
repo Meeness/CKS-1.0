@@ -166,7 +166,7 @@ const resetCountDown = () => {
   resetBtn.disabled = true;
 };
 /* resetCountDown function ends */
-
+/*
 function redirect(goto){
   var conf = confirm("Are you sure you want to go elswhere?");
   if (conf && goto != '') {
@@ -181,3 +181,4 @@ selectEl.onchange = function(){
   redirect(goto);
   
 };
+*/

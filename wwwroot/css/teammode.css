@@ -31,6 +31,8 @@
   .Teamx-players { grid-area: Teamx-players; background-color: #C4C4C4;}
   
   .Teamy-players { grid-area: Teamy-players; background-color: #C4C4C4; }
+
+  .Teamxy-players { grid-area: Team-players Teamy-players; background-color: #C4C4C4;}
   
   .Script-name { grid-area: Script-name; text-align: center; }
   

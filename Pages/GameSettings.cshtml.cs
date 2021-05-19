@@ -29,17 +29,23 @@ namespace CKS_1._0.Pages
             
         }
         public IActionResult OnPost(){
+            //teamselect
             var teamselect = Request.Form["teamselect"];
             foreach(String ts in teamselect){
                 if(ts.Length>0) TeamSelect(ts);
             }
-            
+            //change team name
             var teamindex = Request.Form["teamindex"];
             if(teamindex != "" && (String)teamindex != null){
                 var teamname = Request.Form["teamname"];
                 if(teamname != "" && (String)teamname != null){
                     CK.ActiveGame.Gamemode.Teams[Convert.ToInt16(teamindex)].Name=teamname;
                 }
+            }
+            //gamemode select
+            var modeselect = Request.Form["modeselect"];
+            if(modeselect != "" && (String)modeselect != null){
+                CK.ActiveGame.SelectGameMode(Convert.ToInt16(modeselect));
             }
             
 

@@ -8,7 +8,7 @@ namespace CKS_1._0.Model
     public class Team{
         public int Id{get;set;}
         public string Name{get;set;}
-        public List<Player> Players {get;private set;}
+        public List<Player> Players {get;set;}
         public Team(int id, string name)
         {
             Id=id;
