@@ -181,3 +181,10 @@ selectEl.onchange = function(){
   redirect(goto);
   
 };
+var einele = document.getElementById('test');
+einele.innerHTML = "TEST";
+var TeamSelector = document.getElementsByClassName("changeteam");
+TeamSelector.foreach(element => element.onchange = function(){
+  einele.innerHTML = "TEST TWO";
+  window.location = "/GameSettings";
+});

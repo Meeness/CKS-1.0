@@ -44,6 +44,7 @@ namespace CKS_1._0.Model
             Inventory LWI = new Inventory();
             Inventory CKI = new Inventory();
             CKI.Items.Add(new StringItem(1, "PlayerOne"));
+            //LWI.Items.Add(new IntItem(15, 1));
             Client c = new Client();
             
 
@@ -51,6 +52,7 @@ namespace CKS_1._0.Model
             c.LWInv=LWI;
             Player p = new Player(c);
             ActiveGame.AvailPlayers.Add(p);
+            PlayerList.Add(p);
             
         }
     }
