@@ -6,73 +6,138 @@
 <section class="main">
 <div class="grid-container">
   <div class="Page-name"><p id="header">GAME SETTINGS</p></div>
-  <div class="Team-x">
-    <label for="teamx"></label>
-  <input type="text" id="teamx" name="team-name" value="Team-1">
-  </div>
-  <div class="Team-y">
-        <label for="teamy"></label>
-  <input type="text" id="teamy" name="team-name" value="Team-2">
-  </div>
-  <div class="Teamx-players">
-    <ul class="playerslist">
-      @foreach (var player in Model.CK.ActiveGame.Gamemode.Teams[0].Players)
-      {
-        <li>
-          @player.Client.CKInv.Items[0].ToString()
-          <select>
-            <option>@Model.CK.ActiveGame.Gamemode.Teams[0].Name</option>
-            <option>@Model.CK.ActiveGame.Gamemode.Teams[1].Name</option>
-            <option>Back to Available Players</option>
-          </select>
+  @if(Model.CK.ActiveGame.Gamemode.Id==1){
+    <div class="Team-x"> <!-- Gamemode 1 -->
+      <label for="teamx"></label>
+      <form method="post"> <!-- Team 1 name -->
+        <input type="hidden" value="0" name="teamindex"/>
+        <input type="text" id="teamx" name="teamname" value="@Model.CK.ActiveGame.Gamemode.Teams[0].Name" onfocusout="this.form.submit()">
+      </form>
+    </div>
+    <div class="Team-y">
+      <label for="teamy"></label>
+      <form method="post"> <!-- Team 2 name -->
+        <input type="hidden" value="1" name="teamindex"/>
+        <input type="text" id="teamy" name="teamname" value="@Model.CK.ActiveGame.Gamemode.Teams[1].Name" onfocusout="this.form.submit()">
+      </form>
+    </div>
+    <div class="Teamx-players">
+      <ul class="playerslist"> <!-- Team 1 -->
+        @foreach (var player in Model.CK.ActiveGame.Gamemode.Teams[0].Players)
+        {
+          <li>
+            
+            @player.Client.CKInv.Items[0].ToString()
+            <form method="post">
+              <select class="teamselect" name="teamselect" onchange="this.form.submit()">
+                <option value="@player.Id 0">Available Players</option>
+                @foreach (var team in Model.CK.ActiveGame.Gamemode.Teams){
+                  if(player.TeamId==team.Id){
+                    <option value="@player.Id @team.Id" selected>@team.Name</option>
+                  }else{
+                    <option value="@player.Id @team.Id">@team.Name</option>
+                  }
+                }
+              </select>
+            </form>
           </li>
-      }
-    </ul>
-  </div>
-  <div class="Teamy-players">
-    <ul class="playerslist">
-      @foreach (var player in Model.CK.ActiveGame.Gamemode.Teams[1].Players)
-      {
-        <li>
-          @player.Client.CKInv.Items[0].ToString()
-          <select>
-            <option>@Model.CK.ActiveGame.Gamemode.Teams[1].Name</option>
-            <option>@Model.CK.ActiveGame.Gamemode.Teams[0].Name</option>
-            <option>Back to Available Players</option>
-          </select>
+        }
+      </ul>
+    </div>
+    <div class="Teamy-players">
+      <ul class="playerslist"> <!-- Team 2 -->
+        @foreach (var player in Model.CK.ActiveGame.Gamemode.Teams[1].Players)
+        {
+          <li>
+            
+            @player.Client.CKInv.Items[0].ToString()
+            <form method="post">
+              <select class="teamselect" name="teamselect" onchange="this.form.submit()">
+                <option value="@player.Id 0">Available Players</option>
+                @foreach (var team in Model.CK.ActiveGame.Gamemode.Teams){
+                  if(player.TeamId==team.Id){
+                    <option value="@player.Id @team.Id" selected>@team.Name</option>
+                  }else{
+                    <option value="@player.Id @team.Id">@team.Name</option>
+                  }
+                }
+              </select>
+            </form>
           </li>
-      }
-    </ul>
-  </div>
+        }
+      </ul>
+    </div>
+  }
+  @if(Model.CK.ActiveGame.Gamemode.Id==2) 
+  {
+    <link rel="stylesheet" href="~/css/deathmatch.css" />
+    <div class="Team-x">  <!-- Gamemode 2 -->
+      <label for="teamx"></label>
+      <form method="post"> <!-- Team 1 name -->
+        <input type="hidden" value="0" name="teamindex"/>
+        <input type="text" id="teamx" name="teamname" value="@Model.CK.ActiveGame.Gamemode.Teams[0].Name" onfocusout="this.form.submit()">
+      </form>
+    </div>
+    <div class="Teamx-players"> <!-- Team 1 -->
+      <ul class="playerslist">
+        @foreach (var player in Model.CK.ActiveGame.Gamemode.Teams[0].Players)
+        {
+          <li> 
+            @player.Client.CKInv.Items[0].ToString()
+            <form method="post">
+              <select class="teamselect" name="teamselect" onchange="this.form.submit()">
+                <option value="@player.Id 0">Available Players</option>
+                @foreach (var team in Model.CK.ActiveGame.Gamemode.Teams){
+                  if(player.TeamId==team.Id){
+                    <option value="@player.Id @team.Id" selected>@team.Name</option>
+                  }else{
+                    <option value="@player.Id @team.Id">@team.Name</option>
+                  }
+                }
+              </select>
+            </form>
+          </li>
+        }
+      </ul>
+    </div>
+  }
+
+  
   <div class="Script-name">
 <label for="scripts" id="script">Game script</label>
 <br>
-<select id="scripts">
-  <option value="team-reacing" selected>@Model.CK.ActiveGame.GamemodeList[0].Name</option>
-  <option value="/DM">@Model.CK.ActiveGame.GamemodeList[1].Name</option>
-</select>
+<form method="post"> <!-- Gamemode Select -->
+  <select id="scripts" name="modeselect" onchange="this.form.submit()">
+    @foreach(var gamemode in Model.CK.ActiveGame.GamemodeList){
+      if(gamemode.Id==Model.CK.ActiveGame.Gamemode.Id){
+        <option value="@gamemode.Id" selected>@gamemode.Name</option>
+      }
+      else{
+        <option value="@gamemode.Id">@gamemode.Name</option>
+      }
+      
+    }
+  </select>
+</form>
   </div>
   <div class="players"><label id="script">Available players</label></div>
-  <div class="AVPLAYERS">
+  <div class="AVPLAYERS"> <!-- Available players -->
     <ul class="playerslist">
       @foreach (var player in Model.CK.ActiveGame.AvailPlayers)
       {
         <li>
+          
           @player.Client.CKInv.Items[0].ToString()
-          <select class="teamselect">
-            <option>Back to Available Players</option>
-            <option>@Model.CK.ActiveGame.Gamemode.Teams[0].Name</option>
-            <option>@Model.CK.ActiveGame.Gamemode.Teams[1].Name</option>
-          </select>
-          <asp:DropDownList ID="teamselect" runat="server" AutoPostBack="True" onselectedindexchanged="TeamSelect">
-            <asp:ListItem>Back to Available Players</asp:ListItem>
-            <asp:ListItem value="1 1 1">@Model.CK.ActiveGame.Gamemode.Teams[0].Name</asp:ListItem>
-            <asp:ListItem value="2">@Model.CK.ActiveGame.Gamemode.Teams[1].Name</asp:ListItem>
-          </asp:DropDownList>
-
+          <form method="post">
+            <select class="teamselect" name="teamselect" onchange="this.form.submit()">
+              <option value="">Available Players</option>
+              @foreach (var team in Model.CK.ActiveGame.Gamemode.Teams){
+                <option value="@player.Id @team.Id">@team.Name</option>
+              }
+            </select>
+          </form>
         </li>
       }
-      <li>Player 1 <select class="teamselect"><option value="none" selected>Select team</option><option value="Team-1">Team 1</option><option value="Team-2">Team 2</option></select></li>
     </ul>
   </div>
   <div class="Timer">
