@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\CKS-1.0.csproj",
+  "FilePath": "c:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\CKS-1.0.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15619,62 +15619,62 @@
   "RootNamespace": "CKS_1._0",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\Pages\\DM.cshtml",
-      "TargetPath": "Pages\\DM.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\Pages\\_ViewImports.cshtml",
-      "TargetPath": "Pages\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\Pages\\AppSettings.cshtml",
+      "FilePath": "c:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\Pages\\AppSettings.cshtml",
       "TargetPath": "Pages\\AppSettings.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\Pages\\DeviceSettings.cshtml",
-      "TargetPath": "Pages\\DeviceSettings.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\Pages\\Shared\\_Layout.cshtml",
-      "TargetPath": "Pages\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\Pages\\Privacy.cshtml",
-      "TargetPath": "Pages\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\Pages\\Error.cshtml",
+      "FilePath": "c:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\Pages\\Error.cshtml",
       "TargetPath": "Pages\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\Pages\\Index.cshtml",
-      "TargetPath": "Pages\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Pages\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\Pages\\Statistics.cshtml",
-      "TargetPath": "Pages\\Statistics.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\Pages\\GameSettings.cshtml",
+      "FilePath": "c:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\Pages\\GameSettings.cshtml",
       "TargetPath": "Pages\\GameSettings.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Henry Moon\\Documents\\GitHub\\CKS-1.0\\Pages\\_ViewStart.cshtml",
+      "FilePath": "c:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\Pages\\DM.cshtml",
+      "TargetPath": "Pages\\DM.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\Pages\\_ViewImports.cshtml",
+      "TargetPath": "Pages\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\Pages\\Shared\\_Layout.cshtml",
+      "TargetPath": "Pages\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\Pages\\Statistics.cshtml",
+      "TargetPath": "Pages\\Statistics.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Pages\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\Pages\\Index.cshtml",
+      "TargetPath": "Pages\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\Pages\\Privacy.cshtml",
+      "TargetPath": "Pages\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\Pages\\DeviceSettings.cshtml",
+      "TargetPath": "Pages\\DeviceSettings.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Lenovo\\Desktop\\Combat\\CKS-1.0\\Pages\\_ViewStart.cshtml",
       "TargetPath": "Pages\\_ViewStart.cshtml",
       "FileKind": "mvc"
     }
