@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace CKS_1._0.Model.Wifi.WifiTemplates
 {
-    public class SeparatorPiece:Piece{
-        public SeparatorPiece():base(0x00)
+    public class QueuedDataMessage:Message{
+        public QueuedDataMessage(byte msgcount, DateTime timestamp):base(0x08, msgcount)
         {
-            DateTime d = DateTime.Now;
-            
+            Blocks.Add(new TimeStampBlock(timestamp));
         }
     }
 }

@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace CKS_1._0.Model.Wifi.WifiTemplates
 {
-    public class SeparatorPiece:Piece{
-        public SeparatorPiece():base(0x00)
+    public class InventoryInitMessage:Message{
+        public InventoryInitMessage(byte msgcount):base(0x04, msgcount)
         {
-            DateTime d = DateTime.Now;
-            
+            Blocks.Add(new EndBlock(2));
         }
     }
 }

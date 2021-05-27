@@ -8,13 +8,14 @@ namespace CKS_1._0.Model.Wifi.WifiTemplates
 {
     public class GameMessage:Message
     {
-        public GameMessage(int msgcount)
+        public GameMessage(byte msgcount, bool gameStart, DateTime timestamp = new DateTime(), UInt32 gameDuration = 0 ):base(0x06, msgcount)
         {
-            Blocks.Add(new WaterMark());
-            Blocks.Add(new IdentifierBlock(6, msgcount));
-            //make message etc. abstract
-            //problem when reading with value having diffrent data types
-            //make 01 -> 01 00 00 00
+            if(gameStart){
+                Blocks.Add(new TimeStampBlock(timestamp));
+                Blocks.Add(new ItemBlock06(gameDuration));
+            }else{
+                Blocks.Add(new EndBlock(12));
+            }
         }
     }
 }
