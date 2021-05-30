@@ -3,6 +3,7 @@ C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\css\devicesett
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\css\site.css
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\css\teammode.css
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\favicon.ico
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\images\joystick.png
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\js\deathmatch.js
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\js\site.js
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\js\teammode.js
@@ -44,4 +45,5 @@ C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\appsettings.json
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\electron.manifest.json
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\package-lock.json
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\CKS-1.0.pdb
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\CKS-1.0.Views.pdb
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\CKS-1.0.exe

@@ -6,6 +6,7 @@
 <section class="main">
 <div class="grid-container">
   <div class="Page-name"><p id="header">GAME SETTINGS</p></div>
+  <!--<p>@Model.CK.wifiHandler.teststring</p>-->
   @if(Model.CK.ActiveGame.Gamemode.Id==1){
     <div class="Team-x"> <!-- Gamemode 1 -->
       <label for="teamx"></label>
@@ -26,8 +27,9 @@
         @foreach (var player in Model.CK.ActiveGame.Gamemode.Teams[0].Players)
         {
           <li>
+            @System.Text.Encoding.UTF8.GetString(player.Client.CKInv.Items[0].Value)
+
             
-            @player.Client.CKInv.Items[0].ToString()
             <form method="post">
               <select class="teamselect" name="teamselect" onchange="this.form.submit()">
                 <option value="@player.Id 0">Available Players</option>
@@ -50,7 +52,7 @@
         {
           <li>
             
-            @player.Client.CKInv.Items[0].ToString()
+            @System.Text.Encoding.UTF8.GetString(player.Client.CKInv.Items[0].Value)
             <form method="post">
               <select class="teamselect" name="teamselect" onchange="this.form.submit()">
                 <option value="@player.Id 0">Available Players</option>
@@ -83,7 +85,7 @@
         @foreach (var player in Model.CK.ActiveGame.Gamemode.Teams[0].Players)
         {
           <li> 
-            @player.Client.CKInv.Items[0].ToString()
+            @System.Text.Encoding.UTF8.GetString(player.Client.CKInv.Items[0].Value)
             <form method="post">
               <select class="teamselect" name="teamselect" onchange="this.form.submit()">
                 <option value="@player.Id 0">Available Players</option>
@@ -127,7 +129,7 @@
       {
         <li>
           
-          @player.Client.CKInv.Items[0].ToString()
+          @System.Text.Encoding.UTF8.GetString(player.Client.CKInv.Items[0].Value)
           <form method="post">
             <select class="teamselect" name="teamselect" onchange="this.form.submit()">
               <option value="">Available Players</option>

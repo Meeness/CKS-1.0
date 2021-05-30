@@ -9,6 +9,7 @@ namespace CKS_1._0.Model.Wifi.WifiTemplates
     public class SeparatorPiece:Piece{
         public SeparatorPiece():base(0x00)
         {
+            DateTime d = DateTime.Now;
             
         }
     }

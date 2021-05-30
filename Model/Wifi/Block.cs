@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CKS_1._0.Model.Wifi
 {
-    public class Block{
+    public abstract class Block{
         public List<Piece> Pieces {get;set;}
         public Block(Piece piece)
         {

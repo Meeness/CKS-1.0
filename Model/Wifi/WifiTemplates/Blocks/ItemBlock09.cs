@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CKS_1._0.Model.Wifi.WifiTemplates
 {
     public class ItemBlock09:ItemBlock{
-        /*public ItemBlock09(int id, int direction, byte[] value):base(
+        /*public ItemBlock09(int id, int direction, byte[] value):base(  //reading
             new List<Piece>{
                 new IdentifierPiece(id),
                 new SeparatorPiece(),
@@ -16,7 +16,7 @@ namespace CKS_1._0.Model.Wifi.WifiTemplates
                 new ValuePiece(direction, value)
             }
         ){}*/
-        public ItemBlock09(int id):base(
+        public ItemBlock09(byte id):base( //writing
             new List<Piece>{
                 new IdentifierPiece(id),
                 new SeparatorPiece()

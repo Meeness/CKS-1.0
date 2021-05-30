@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CKS_1._0.Model
 {
-    public class IntItem:Item{
+    /*public class IntItem:Item{
         public int Data{get;set;}
         public IntItem(int id, int data):base(id)
         {
@@ -16,5 +16,5 @@ namespace CKS_1._0.Model
         {
             return Data.ToString();
         }
-    }
+    }*/
 }

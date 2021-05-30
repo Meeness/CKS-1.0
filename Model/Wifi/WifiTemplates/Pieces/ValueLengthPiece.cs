@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 namespace CKS_1._0.Model.Wifi.WifiTemplates
 {
     public class ValueLengthPiece:Piece{
-        public ValueLengthPiece(int length):base(length){}
+        public ValueLengthPiece(byte length):base(length){}
     }
 }
