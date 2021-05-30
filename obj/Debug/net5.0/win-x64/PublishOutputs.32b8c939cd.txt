@@ -3,7 +3,11 @@ C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\css\devicesettings.c
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\css\site.css
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\css\teammode.css
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\favicon.ico
+C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\images\gun.png
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\images\joystick.png
+C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\images\logo.png
+C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\images\stats.png
+C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\images\steeringwheel.png
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\js\deathmatch.js
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\js\site.js
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\js\teammode.js

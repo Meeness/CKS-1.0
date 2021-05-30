@@ -25,10 +25,12 @@ namespace CKS_1._0
         Show = false,
 
     });
+    
     await browserWindow.WebContents.Session.ClearCacheAsync();
     browserWindow.OnReadyToShow += () => 
     browserWindow.Show();
     browserWindow.Maximize();
+    browserWindow.SetMenuBarVisibility(false);
     browserWindow.SetTitle("Combat Karts Management System");
 }
         public Startup(IConfiguration configuration)
