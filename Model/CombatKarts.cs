@@ -3,11 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CKS_1._0.Model.Wifi;
+using CKS_1._0.Model.Wifi.WifiTemplates;
+using System.Net;
+using System.Threading;
+
 
 namespace CKS_1._0.Model
 {
     public class CombatKarts
     {
+        //get ranges
+        //implement function calls->06->start&end, 05 0a.
+        //bind settings
+        //bind game time
+        //endianess -> when it leaves and enters the system
+
+        //test
         private static CombatKarts _instance;
         public static CombatKarts Instance{
             get{
@@ -43,21 +54,36 @@ namespace CKS_1._0.Model
 
             PlayerList=new List<Player>();
             wifiHandler=new WifiHandler();
+
+            Thread t2 = new Thread(()=>UpdateCycle());
+            t2.Start();
+
             //test
             CreatePlayerTest();
             
         }
+        public void UpdateCycle(){
+            while(true)
+            {   
+                foreach(Player p in wifiHandler.Clients){
+                    if(p.Client.ConState==ConnectionState.Initialized||p.Client.ConState==ConnectionState.Online){
+                        if(ActiveGame.AvailPlayers.Find(x=>x.Id==p.Id)==null&&p.Client.ConState==ConnectionState.Online)ActiveGame.AvailPlayers.Add(p);
+                        wifiHandler.SendMessage(new InventoryUpdateMessage(p.Client.Msgcount, p.Client.LWInv), p.Client);
+                        Thread.Sleep(200);
+                    }
+                }
+                Thread.Sleep(200);
+            }      
+        }
         private void CreatePlayerTest(){//testfunction
             
-            Inventory LWI = new Inventory();
-            Inventory CKI = new Inventory();
-            CKI.Items.Add(new Item(1, "PlayerOne"));
-            //LWI.Items.Add(new IntItem(15, 1));
-            Client c = new Client(new System.Net.IPAddress(new byte[]{0x00,0x00,0x00,0x00}), WifiHandler.Port);
-            
 
-            c.CKInv=CKI;
-            c.LWInv=LWI;
+            
+            //LWI.Items.Add(new IntItem(15, 1));
+            Client c = new Client(new IPAddress(new byte[]{0x00,0x00,0x00,0x01}), WifiHandler.Port);
+            c.CKInv.Items.Add(new Item(1, "PlayerOne"));
+
+
             Player p = new Player(c);
             ActiveGame.AvailPlayers.Add(p);
             PlayerList.Add(p);

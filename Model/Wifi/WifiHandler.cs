@@ -4,6 +4,9 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Net.Sockets;
+using System.Text;
+using CKS_1._0.Model.Wifi.WifiTemplates;
 
 namespace CKS_1._0.Model.Wifi
 {
@@ -14,47 +17,177 @@ namespace CKS_1._0.Model.Wifi
 
         public List<Player> Clients {get;set;}
         public string teststring {get;set;}
+        public Inventory ItemsUsed {get;set;}
 
+        
         //public IPAddress Gun = new IPAddress(new byte[] { 0xc0, 0xa8, 0x1f, 0xf5 });
 
         public WifiHandler()
         {
+            Clients=new List<Player>();
+            ItemsUsed = new Inventory();
+
+            ItemsUsed.Items.Add(new Item(0x14, 0, new byte[]{0x01}, new byte[]{0x7e}));//Playerid
+
+            ItemsUsed.Items.Add(new Item(0x15, 0, new byte[]{0x00}, new byte[]{0x03}));//TeamColor
+            ItemsUsed.Items.Add(new Item(0x16, 1, new byte[]{0x00, 0x01}, new byte[]{0x03, 0xe7}));//Hp
+            ItemsUsed.Items.Add(new Item(0x17, 0, new List<byte[]>{new byte[]{0x00}, new byte[]{0x01}}));//Friendly fire
+            
+            ItemsUsed.Items.Add(new Item(0x34, 0, new byte[]{0x00}, new byte[]{0xff}));//Clips
+            ItemsUsed.Items.Add(new Item(0x35, 1, new byte[]{0x00, 0x00}, new byte[]{0x27, 0x0e}));//Bullets
+            ItemsUsed.Items.Add(new Item(0x38, 0, new List<byte[]>{
+                new byte[]{0x01}, 
+                new byte[]{0x02}, 
+                new byte[]{0x04}, 
+                new byte[]{0x05}, 
+                new byte[]{0x07}, 
+                new byte[]{0x0a}, 
+                new byte[]{0xff},
+                new byte[]{0x11},
+                new byte[]{0x14},
+                new byte[]{0x19},
+                new byte[]{0x1e},
+                new byte[]{0x23},
+                new byte[]{0x28},
+                new byte[]{0x32},
+                new byte[]{0x4b},
+                new byte[]{0x64},
+                }));//Damage
+            ItemsUsed.Items.Add(new Item(0x39, 0, new byte[]{0x01}, new byte[]{0xff}));//ReloadDuration
+            ItemsUsed.Items.Add(new Item(0x3a, 0, new List<byte[]>{new byte[]{0x00}, new byte[]{0x01}}));//AutoReload
+
+            //current values
+            ItemsUsed.Items.Add(new Item(0x22));//CurrentHp
+
+            ItemsUsed.Items.Add(new Item(0x4f));//CurrentClips
+            ItemsUsed.Items.Add(new Item(0x50));//CurrentBullets
+
             teststring = "NUTTINGAH!?";
             teststring +="LOL?";
-            //Thread t1 = new Thread(()=>BroadcastListener());
-            //t1.Start();
+            teststring += "Thread: "+Thread.CurrentThread.ManagedThreadId+";";
+
+
+            Thread t1 = new Thread(()=>WifiReader());
+            t1.Start();
+            
             
         }
         public void SendMessage(Message msg, Client client){
-            
+            byte[] m = msg.CombinedMessage();
+            client.Socket.Send(m, m.Length, client.endPoint);    
         }
         public void WifiReader(){
-            //teststring += "Thread: "+Thread.CurrentThread.ManagedThreadId+";";
-            while(false){
-                //listen
+            teststring += "BUTISURELNUTING?!";
+            teststring += "Thread: "+Thread.CurrentThread.ManagedThreadId+";";
+            using (UdpClient socket = new UdpClient(new IPEndPoint(IPAddress.Any, Port)))
+            {
+                IPEndPoint remoteEndPoint = new IPEndPoint(0, 0);
+                while(true){
+                    byte[] datagramReceived = socket.Receive(ref remoteEndPoint);                    
+                    if(datagramReceived.Length>=8&&Encoding.ASCII.GetString(datagramReceived, 0, 4)=="<LW>")
+                    {
+                        
+                        switch (datagramReceived[4])
+                        {
+                            case 0x02:
+                                if(Clients.Find(x=>x.Client.endPoint.Address.ToString()==remoteEndPoint.Address.ToString())==null)//client !exist
+                                {                                    
+                                    Player p = new Player(new Client(remoteEndPoint.Address, Port));
+                                    Clients.Add(p);
+                                    SendMessage(new AuthenticateMessage(DateTime.Now), p.Client);
+                                }
+                                break;
+                            case 0x03:
+                                Player p3 = Clients.Find(x=>x.Client.endPoint.Address.ToString()==remoteEndPoint.Address.ToString());
+                                if(p3!=null)//client exist
+                                {
+                                    p3.Client.ConState = ConnectionState.Authenticated;
+                                    SendMessage(new InventoryInitMessage(p3.Client.Msgcount), p3.Client);
+                                }
+                                break;
+                            case 0x04:
+                                Player p4 = Clients.Find(x=>x.Client.endPoint.Address.ToString()==remoteEndPoint.Address.ToString());
+                                if(p4!=null)//client exist
+                                {
+                                    if(datagramReceived.Length%8==0){
+                                        for(int i = 12;i<datagramReceived.Length;i+=8){
+                                            Item item = new Item(datagramReceived[i]);
+                                            p4.Client.LWInvAll.Items.Add(item);
+                                            if(ItemsUsed.Items.Find(x=>x.Id==item.Id)!=null)p4.Client.LWInv.Items.Add(item);         
+                                        }
+                                        p4.Client.ConState = ConnectionState.Initialized;
+                                    }   
+                                }
+                                break;
+                            case 0x05:
+                                //something
+                                break;
+                            case 0x06:
+                                //something
+                                break;
+                            case 0x08:
+                                //read
+                                //something
+                                break;
+                            case 0x09:
+                                Player p9 = Clients.Find(x=>x.Client.endPoint.Address.ToString()==remoteEndPoint.Address.ToString());
+                                if(p9!=null)//client exist
+                                {
+                                    int nextValuelen;
+                                    int nextIdNdx = 8;
+                                    for(int i = 8;i<datagramReceived.Length;i++){
+                                        if(nextIdNdx == i){
+                                            nextValuelen=datagramReceived[i+3];
+                                            nextIdNdx=i+4+nextValuelen;
+                                            Item item = p9.Client.LWInv.Items.Find(x=>x.Id==datagramReceived[i]);
+                                            Buffer.BlockCopy(item.ReadDirection==ReadingDirection.Forwards?datagramReceived:Item.ReverseBytes(datagramReceived), i+4, item.Value, 0, nextValuelen);
+                                        } 
+                                    }
+                                    if(p9.Client.ConState==ConnectionState.Initialized)p9.Client.ConState=ConnectionState.Online;
+                                }
+                                //something
+                                break;
+                            case 0x0a:
+                                //something
+                                break;
+                            default:
+                                //something
+                                break;
+                        }
+                    }    
+                }
             }
         }
         public void BroadcastListener(){
             bool ReaderStartet = false;
             teststring += "BUTISURELNUTING?!";
-            while(!ReaderStartet){
-                
-                if(!ReaderStartet){//client found
-                    if(!ReaderStartet)//client not in clientlist
-                    {
-                        //teststring += "Thread: "+Thread.CurrentThread.ManagedThreadId+";";
-                        IPAddress ip = new IPAddress(new byte[]{0x00,0x00,0x00,0x00});//ip from client
-                        Client c = new Client(ip, Port);
-                        Clients.Add(new Player(c));
-                        if(!ReaderStartet){
-                            //start wifireader
-                            //Thread t2 = new Thread(()=>WifiReader());
-                            //t2.Start();
-                            ReaderStartet=true;
+            teststring += "Thread: "+Thread.CurrentThread.ManagedThreadId+";";
+            
+            using (UdpClient socket = new UdpClient(new IPEndPoint(IPAddress.Any, Port)))
+            {
+                IPEndPoint remoteEndPoint = new IPEndPoint(0, 0);
+                while(true){
+                    byte[] datagramReceived = socket.Receive(ref remoteEndPoint);
+                    string message = Encoding.ASCII.GetString(datagramReceived, 0, datagramReceived.Length);
+                    teststring += "dingdong!";
+                    teststring += message;
+                    if(!ReaderStartet){//client found
+                        if(!ReaderStartet)//client not in clientlist
+                        {
+                            
+                            //IPAddress ip = new IPAddress(new byte[]{0x00,0x00,0x00,0xff});//ip from client
+                            //Client c = new Client(new IPAddress(new byte[]{0x00,0x00,0x00,0xff}), Port);
+                            
+                            if(!ReaderStartet){
+                                //start wifireader
+                                Thread t2 = new Thread(()=>WifiReader());
+                                t2.Start();
+                                ReaderStartet=true;
+                            }
                         }
                     }
+                    
                 }
-                
             }
         }
     }
