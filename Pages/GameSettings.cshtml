@@ -7,6 +7,12 @@
 <div class="grid-container">
   <div class="Page-name"><p id="header">GAME SETTINGS</p></div>
   <p>@Model.CK.wifiHandler.teststring</p>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <p>@Model.test</p>
   @if(Model.CK.ActiveGame.Gamemode.Id==1){
     <div class="Team-x"> <!-- Gamemode 1 -->
       <label for="teamx"></label>
@@ -32,12 +38,12 @@
             
             <form method="post">
               <select class="teamselect" name="teamselect" onchange="this.form.submit()">
-                <option value="@player.Id 0">Available Players</option>
+                <option value="@BitConverter.ToInt16(Model.CK.ConvertTo4Byte(player.Client.LWInv.Items.Find(x=>x.Id==0x14).Value), 0) 0">Available Players</option>
                 @foreach (var team in Model.CK.ActiveGame.Gamemode.Teams){
                   if(player.TeamId==team.Id){
-                    <option value="@player.Id @team.Id" selected>@team.Name</option>
+                    <option value="@BitConverter.ToInt16(Model.CK.ConvertTo4Byte(player.Client.LWInv.Items.Find(x=>x.Id==0x14).Value), 0) @team.Id" selected>@team.Name</option>
                   }else{
-                    <option value="@player.Id @team.Id">@team.Name</option>
+                    <option value="@BitConverter.ToInt16(Model.CK.ConvertTo4Byte(player.Client.LWInv.Items.Find(x=>x.Id==0x14).Value), 0) @team.Id">@team.Name</option>
                   }
                 }
               </select>
@@ -55,12 +61,12 @@
             @System.Text.Encoding.UTF8.GetString(player.Client.CKInv.Items[0].Value)
             <form method="post">
               <select class="teamselect" name="teamselect" onchange="this.form.submit()">
-                <option value="@player.Id 0">Available Players</option>
+                <option value="@BitConverter.ToInt16(Model.CK.ConvertTo4Byte(player.Client.LWInv.Items.Find(x=>x.Id==0x14).Value), 0) 0">Available Players</option>
                 @foreach (var team in Model.CK.ActiveGame.Gamemode.Teams){
                   if(player.TeamId==team.Id){
-                    <option value="@player.Id @team.Id" selected>@team.Name</option>
+                    <option value="@BitConverter.ToInt16(Model.CK.ConvertTo4Byte(player.Client.LWInv.Items.Find(x=>x.Id==0x14).Value), 0) @team.Id" selected>@team.Name</option>
                   }else{
-                    <option value="@player.Id @team.Id">@team.Name</option>
+                    <option value="@BitConverter.ToInt16(Model.CK.ConvertTo4Byte(player.Client.LWInv.Items.Find(x=>x.Id==0x14).Value), 0) @team.Id">@team.Name</option>
                   }
                 }
               </select>
@@ -88,12 +94,12 @@
             @System.Text.Encoding.UTF8.GetString(player.Client.CKInv.Items[0].Value)
             <form method="post">
               <select class="teamselect" name="teamselect" onchange="this.form.submit()">
-                <option value="@player.Id 0">Available Players</option>
+                <option value="@BitConverter.ToInt16(Model.CK.ConvertTo4Byte(player.Client.LWInv.Items.Find(x=>x.Id==0x14).Value), 0) 0">Available Players</option>
                 @foreach (var team in Model.CK.ActiveGame.Gamemode.Teams){
                   if(player.TeamId==team.Id){
-                    <option value="@player.Id @team.Id" selected>@team.Name</option>
+                    <option value="@BitConverter.ToInt16(Model.CK.ConvertTo4Byte(player.Client.LWInv.Items.Find(x=>x.Id==0x14).Value), 0) @team.Id" selected>@team.Name</option>
                   }else{
-                    <option value="@player.Id @team.Id">@team.Name</option>
+                    <option value="@BitConverter.ToInt16(Model.CK.ConvertTo4Byte(player.Client.LWInv.Items.Find(x=>x.Id==0x14).Value), 0) @team.Id">@team.Name</option>
                   }
                 }
               </select>
@@ -134,7 +140,7 @@
             <select class="teamselect" name="teamselect" onchange="this.form.submit()">
               <option value="">Available Players</option>
               @foreach (var team in Model.CK.ActiveGame.Gamemode.Teams){
-                <option value="@player.Id @team.Id">@team.Name</option>
+                <option value="@BitConverter.ToInt16(Model.CK.ConvertTo4Byte(player.Client.LWInv.Items.Find(x=>x.Id==0x14).Value), 0) @team.Id">@team.Name</option>
               }
             </select>
           </form>

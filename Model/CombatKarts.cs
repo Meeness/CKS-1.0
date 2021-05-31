@@ -12,13 +12,15 @@ namespace CKS_1._0.Model
 {
     public class CombatKarts
     {
-        //get ranges
-        //implement function calls->06->start&end, 05 0a.
-        //bind settings
-        //bind game time
-        //endianess -> when it leaves and enters the system
 
-        //test
+        
+        //setting functions
+        //bind game time
+        //implement function calls->06->start&end, 05 0a.
+        //teamid->inventory
+
+        //test big
+
         private static CombatKarts _instance;
         public static CombatKarts Instance{
             get{
@@ -55,8 +57,8 @@ namespace CKS_1._0.Model
             PlayerList=new List<Player>();
             wifiHandler=new WifiHandler();
 
-            Thread t2 = new Thread(()=>UpdateCycle());
-            t2.Start();
+            //Thread t2 = new Thread(()=>UpdateCycle());
+            //t2.Start();
 
             //test
             CreatePlayerTest();
@@ -67,7 +69,7 @@ namespace CKS_1._0.Model
             {   
                 foreach(Player p in wifiHandler.Clients){
                     if(p.Client.ConState==ConnectionState.Initialized||p.Client.ConState==ConnectionState.Online){
-                        if(ActiveGame.AvailPlayers.Find(x=>x.Id==p.Id)==null&&p.Client.ConState==ConnectionState.Online)ActiveGame.AvailPlayers.Add(p);
+                        if(p.Client.ConState==ConnectionState.Online&&ActiveGame.AvailPlayers.Find(x=>x.Client.LWInv.Items.Find(x=>x.Id==0x14)==p.Client.LWInv.Items.Find(x=>x.Id==0x14))==null) ActiveGame.AvailPlayers.Add(p);
                         wifiHandler.SendMessage(new InventoryUpdateMessage(p.Client.Msgcount, p.Client.LWInv), p.Client);
                         Thread.Sleep(200);
                     }
@@ -75,18 +77,64 @@ namespace CKS_1._0.Model
                 Thread.Sleep(200);
             }      
         }
+        public byte[] ConvertTo4Byte(byte[] bytes){
+            byte[] returnArr = new byte[4];
+            for(int i = 0;i<4;i++){
+                if(bytes.Length>i)returnArr[i]=bytes[i];
+                else returnArr[i]=0x00;
+            }
+            return returnArr;
+        }
         private void CreatePlayerTest(){//testfunction
             
 
             
-            //LWI.Items.Add(new IntItem(15, 1));
-            Client c = new Client(new IPAddress(new byte[]{0x00,0x00,0x00,0x01}), WifiHandler.Port);
-            c.CKInv.Items.Add(new Item(1, "PlayerOne"));
+            Client c = new Client(new IPAddress(new byte[]{ 0xc0, 0xa8, 0x00, 0x66}), WifiHandler.Port);
+            c.ConState = ConnectionState.Online;
+            c.CKInv.Items.Add(new Item(1, "TestPlayer"));
+            c.CKInv.Items.Add(new Item(2, new byte[]{0x05}));
+            c.CKInv.Items.Add(new Item(3, new byte[]{0x1e}));
+            
+        
 
+            c.LWInv.Items.Add(new Item(0x14, new byte[]{0x7e, 0x00}, 1));//Playerid
+            c.LWInv.Items.Add(new Item(0x15, new byte[]{0x03}, 0));//TeamColor
+            c.LWInv.Items.Add(new Item(0x16, new byte[]{0xe7, 0x03}, 1));//Hp
+            c.LWInv.Items.Add(new Item(0x17, new byte[]{0x01}, 0));//Friendly fire 
+            c.LWInv.Items.Add(new Item(0x34, new byte[]{0xff}, 0));//Clips
+            c.LWInv.Items.Add(new Item(0x35, new byte[]{0x0e, 0x27}, 1));//Bullets
+            c.LWInv.Items.Add(new Item(0x38, new byte[]{0x64, 0x00}, 0));//Damage
+            c.LWInv.Items.Add(new Item(0x39, new byte[]{0xff}, 0));//ReloadDuration
+            c.LWInv.Items.Add(new Item(0x3a, new byte[]{0x01}, 0));//AutoReload
+
+
+            //current values
+            c.LWInv.Items.Add(new Item(0x22, new byte[]{0xe7, 0x03}, 1));//CurrentHp
+            c.LWInv.Items.Add(new Item(0x4f, new byte[]{0xff}, 0));//CurrentClips
+            c.LWInv.Items.Add(new Item(0x50, new byte[]{0x0e, 0x27}, 1));//CurrentBullets
+
+
+
+            c.LWInvAll.Items.Add(new Item(0x14));//Playerid
+            c.LWInvAll.Items.Add(new Item(0x15));//TeamColor
+            c.LWInvAll.Items.Add(new Item(0x16));//Hp
+            c.LWInvAll.Items.Add(new Item(0x17));//Friendly fire 
+            c.LWInvAll.Items.Add(new Item(0x34));//Clips
+            c.LWInvAll.Items.Add(new Item(0x35));//Bullets
+            c.LWInvAll.Items.Add(new Item(0x38));//Damage
+            c.LWInvAll.Items.Add(new Item(0x39));//ReloadDuration
+            c.LWInvAll.Items.Add(new Item(0x3a));//AutoReload
+
+
+            //current values
+            c.LWInvAll.Items.Add(new Item(0x22));//CurrentHp
+            c.LWInvAll.Items.Add(new Item(0x4f));//CurrentClips
+            c.LWInvAll.Items.Add(new Item(0x50));//CurrentBullets
 
             Player p = new Player(c);
             ActiveGame.AvailPlayers.Add(p);
-            PlayerList.Add(p);
+            wifiHandler.Clients.Add(p);
+            PlayerList.Add(p);//eh no no no
             
         }
     }

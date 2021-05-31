@@ -63,6 +63,7 @@ namespace CKS_1._0.Model
             }
             AllowedValues=returnArray;
         }*/
+        //methods
         public static byte[] ReverseBytes(byte[] bytes)
         {
             int len = bytes.Length;
@@ -75,17 +76,28 @@ namespace CKS_1._0.Model
             return returnBytes;
         }
         public List<byte[]> CalcAllowedValues(byte[] start, byte[] end, int growth){
-            int s = Convert.ToInt32(start);
-            int e = Convert.ToInt32(end);
+            int s = BitConverter.ToInt32(ConvertTo4Byte(start), 0);
+            int e = BitConverter.ToInt32(ConvertTo4Byte(end), 0);
+            
             List<byte[]> returnlist = new List<byte[]>{};
             for(int i = s;i<=e;i+=growth){
-                returnlist.Add(BitConverter.GetBytes(i));
+                byte[] b = new byte[start.Length];
+                Buffer.BlockCopy(BitConverter.GetBytes(i), 0, b, 0, start.Length);
+                returnlist.Add(b);
             }
 
             return returnlist;
         }
+        public byte[] ConvertTo4Byte(byte[] bytes){
+            byte[] returnArr = new byte[4];
+            for(int i =0;i<4;i++){
+                if(bytes.Length>i)returnArr[i]=bytes[i];
+                else returnArr[i]=0x00;
+            }
+            return returnArr;
+        }
 
-        //methods
+        
         public byte[] AddByteToArrayEnd(byte[] bytes, byte newByte){
             byte[] newArray = new byte[bytes.Length + 1];
             bytes.CopyTo(newArray, 0);

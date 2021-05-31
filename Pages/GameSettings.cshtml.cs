@@ -54,11 +54,23 @@ namespace CKS_1._0.Pages
         public void TeamSelect(string teamSelect)
         {
             string[] ts = teamSelect.Split(' ');
+            
             int pId = Convert.ToInt16(ts[0]);
-            Player p = CK.PlayerList.Find(x=>x.Id==pId);
+            
+            byte[] compareArr = new byte[2];
+            Buffer.BlockCopy(BitConverter.GetBytes(pId), 0, compareArr, 0, 2);
+            test="here it is: "+ts[0]+"-"+FormatBytes(CK.PlayerList[0].Client.LWInv.Items[0].Value)+"-"+FormatBytes(compareArr)+"!!!";
+            Player p = CK.PlayerList.Find(x=>x.Client.LWInv.Items.Find(x=>x.Id==0x14).Value.SequenceEqual(compareArr));
             if(p!=null)CK.ActiveGame.ChangeTeam(p, Convert.ToInt16(ts[1]));
             
         }
-        public void TestFunction(){}
+        private static string FormatBytes(Byte[] bytes)
+        {
+            string value = "";
+            foreach (var byt in bytes)
+                value += String.Format("{0:X2} ", byt);
+
+            return value;
+        }
     }
 }

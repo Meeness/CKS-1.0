@@ -17,7 +17,8 @@ namespace CKS_1._0.Model.Wifi
 
         public List<Player> Clients {get;set;}
         public string teststring {get;set;}
-        public Inventory ItemsUsed {get;set;}
+        public Inventory LWItemsUsed {get;set;}
+        public Inventory CKItemsUsed {get;set;}
 
         
         //public IPAddress Gun = new IPAddress(new byte[] { 0xc0, 0xa8, 0x1f, 0xf5 });
@@ -25,47 +26,52 @@ namespace CKS_1._0.Model.Wifi
         public WifiHandler()
         {
             Clients=new List<Player>();
-            ItemsUsed = new Inventory();
+            LWItemsUsed = new Inventory();
 
-            ItemsUsed.Items.Add(new Item(0x14, 0, new byte[]{0x01}, new byte[]{0x7e}));//Playerid
+            LWItemsUsed.Items.Add(new Item(0x14, 0, new byte[]{0x01, 0x00}, new byte[]{0x7e, 0x00}));//Playerid
 
-            ItemsUsed.Items.Add(new Item(0x15, 0, new byte[]{0x00}, new byte[]{0x03}));//TeamColor
-            ItemsUsed.Items.Add(new Item(0x16, 1, new byte[]{0x00, 0x01}, new byte[]{0x03, 0xe7}));//Hp
-            ItemsUsed.Items.Add(new Item(0x17, 0, new List<byte[]>{new byte[]{0x00}, new byte[]{0x01}}));//Friendly fire
+            LWItemsUsed.Items.Add(new Item(0x15, 0, new byte[]{0x00}, new byte[]{0x03}));//TeamColor
+            LWItemsUsed.Items.Add(new Item(0x16, 1, new byte[]{0x01, 0x00}, new byte[]{0xe7, 0x03}));//Hp
+            LWItemsUsed.Items.Add(new Item(0x17, 0, new List<byte[]>{new byte[]{0x00}, new byte[]{0x01}}));//Friendly fire
             
-            ItemsUsed.Items.Add(new Item(0x34, 0, new byte[]{0x00}, new byte[]{0xff}));//Clips
-            ItemsUsed.Items.Add(new Item(0x35, 1, new byte[]{0x00, 0x00}, new byte[]{0x27, 0x0e}));//Bullets
-            ItemsUsed.Items.Add(new Item(0x38, 0, new List<byte[]>{
-                new byte[]{0x01}, 
-                new byte[]{0x02}, 
-                new byte[]{0x04}, 
-                new byte[]{0x05}, 
-                new byte[]{0x07}, 
-                new byte[]{0x0a}, 
-                new byte[]{0xff},
-                new byte[]{0x11},
-                new byte[]{0x14},
-                new byte[]{0x19},
-                new byte[]{0x1e},
-                new byte[]{0x23},
-                new byte[]{0x28},
-                new byte[]{0x32},
-                new byte[]{0x4b},
-                new byte[]{0x64},
+            LWItemsUsed.Items.Add(new Item(0x34, 0, new byte[]{0x00}, new byte[]{0xff}));//Clips
+            LWItemsUsed.Items.Add(new Item(0x35, 1, new byte[]{0x00, 0x00}, new byte[]{0x0e, 0x27}));//Bullets
+            LWItemsUsed.Items.Add(new Item(0x38, 0, new List<byte[]>{
+                new byte[]{0x01, 0x00}, 
+                new byte[]{0x02, 0x00}, 
+                new byte[]{0x04, 0x00}, 
+                new byte[]{0x05, 0x00}, 
+                new byte[]{0x07, 0x00}, 
+                new byte[]{0x0a, 0x00}, 
+                new byte[]{0x0f, 0x00},
+                new byte[]{0x11, 0x00},
+                new byte[]{0x14, 0x00},
+                new byte[]{0x19, 0x00},
+                new byte[]{0x1e, 0x00},
+                new byte[]{0x23, 0x00},
+                new byte[]{0x28, 0x00},
+                new byte[]{0x32, 0x00},
+                new byte[]{0x4b, 0x00},
+                new byte[]{0x64, 0x00},
                 }));//Damage
-            ItemsUsed.Items.Add(new Item(0x39, 0, new byte[]{0x01}, new byte[]{0xff}));//ReloadDuration
-            ItemsUsed.Items.Add(new Item(0x3a, 0, new List<byte[]>{new byte[]{0x00}, new byte[]{0x01}}));//AutoReload
+            LWItemsUsed.Items.Add(new Item(0x39, 0, new byte[]{0x01}, new byte[]{0xff}));//ReloadDuration
+            LWItemsUsed.Items.Add(new Item(0x3a, 0, new List<byte[]>{new byte[]{0x00}, new byte[]{0x01}}));//AutoReload
 
             //current values
-            ItemsUsed.Items.Add(new Item(0x22));//CurrentHp
+            LWItemsUsed.Items.Add(new Item(0x22));//CurrentHp
 
-            ItemsUsed.Items.Add(new Item(0x4f));//CurrentClips
-            ItemsUsed.Items.Add(new Item(0x50));//CurrentBullets
+            LWItemsUsed.Items.Add(new Item(0x4f));//CurrentClips
+            LWItemsUsed.Items.Add(new Item(0x50));//CurrentBullets
+
+            CKItemsUsed = new Inventory();
+
+            CKItemsUsed.Items.Add(new Item(0x01));//playername
+            CKItemsUsed.Items.Add(new Item(0x02, 0, new byte[]{0x00}, new byte[]{0xff}));//shield duration
+            CKItemsUsed.Items.Add(new Item(0x03, 0, new byte[]{0x00}, new byte[]{0xff}));//shield cooldown
 
             teststring = "NUTTINGAH!?";
             teststring +="LOL?";
             teststring += "Thread: "+Thread.CurrentThread.ManagedThreadId+";";
-
 
             Thread t1 = new Thread(()=>WifiReader());
             t1.Start();
@@ -113,7 +119,7 @@ namespace CKS_1._0.Model.Wifi
                                         for(int i = 12;i<datagramReceived.Length;i+=8){
                                             Item item = new Item(datagramReceived[i]);
                                             p4.Client.LWInvAll.Items.Add(item);
-                                            if(ItemsUsed.Items.Find(x=>x.Id==item.Id)!=null)p4.Client.LWInv.Items.Add(item);         
+                                            if(LWItemsUsed.Items.Find(x=>x.Id==item.Id)!=null)p4.Client.LWInv.Items.Add(item);         
                                         }
                                         p4.Client.ConState = ConnectionState.Initialized;
                                     }   
