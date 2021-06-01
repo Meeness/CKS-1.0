@@ -2,19 +2,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CKS_1._0.Model.Wifi;
+using CKS_1._0.Model.Wifi.WifiTemplates;
 
 namespace CKS_1._0.Model
 {
     public class Game
     {
         public int Id{get;set;}
-        public GameState GameState {get;set;}
+        public GameState State {get;set;}
         public Gamemode Gamemode {get;set;}
         public List<Gamemode> GamemodeList {get;set;}
 
         public DateTime GameStart{get;set;}
-        public int GameDuration{get;set;}
-        public int GameDelay{get;set;}
+        public double GameDuration{get;set;}
+        public double GameDelay{get;set;}
         
         public List<Player> AvailPlayers{get;set;}
 
@@ -22,7 +24,7 @@ namespace CKS_1._0.Model
         {
             GamemodeList = gamemodes;
             AvailPlayers = new List<Player>();
-           
+            State = GameState.Ready;
             GameDuration=15;
             GameDelay=5;
             SelectGameMode(1);
@@ -68,10 +70,46 @@ namespace CKS_1._0.Model
                 }
             }
         }
+        public void StartGame(WifiHandler wifiHandler){
+            GameStart = DateTime.Now.AddSeconds(GameDelay);
+            State = GameState.Running;
+            foreach(Team team in Gamemode.Teams){
+                foreach(Player player in team.Players){
+                    Inventory inv = new Inventory();
+                    byte teamid = Convert.ToByte(player.TeamId);
+                    if(player.Client.LWInv.Items.Find(x=>x.Id==0x15).Value[0]!=teamid)inv.Items.Add(new Item(0x15, new byte[]{teamid}));
+                    foreach(Item item in player.Client.LWInv.Items){
+                        foreach(Item setting in Gamemode.Settings.Items){
+                            if(setting.Id==item.Id&&!setting.Value.SequenceEqual(item.Value))inv.Items.Add(setting);
+                        }
+                    }
+                    
+                    if(inv.Items.Count>0)wifiHandler.SendMessage(new GamemodeItemUpdateMessage(player.Client.Msgcount, inv), player.Client);
+
+                    wifiHandler.SendMessage(new GameMessage(player.Client.Msgcount, true, GameStart, Convert.ToUInt32(GameDuration)), player.Client);
+                }
+            }
+        }
+        public void EndGame(WifiHandler wifiHandler){
+            State = GameState.Over;
+            foreach(Team team in Gamemode.Teams){
+                foreach(Player player in team.Players){
+                    wifiHandler.SendMessage(new GameMessage(player.Client.Msgcount, false), player.Client);
+                }
+            }
+        }
+        public long GetRemainingGameTicks(){
+            return GameStart.AddMinutes(GameDuration).Ticks-DateTime.Now.Ticks;
+        }
+        public bool IsGameOver(){
+            if(GetRemainingGameTicks()<=0)return true;
+            return false;
+        }
     }
 }
 public enum GameState{
-    Ready,
+    Ready = 0,
     Running,
+    Paused,
     Over
 }

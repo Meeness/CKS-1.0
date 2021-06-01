@@ -13,14 +13,6 @@ namespace CKS_1._0.Model
     public class CombatKarts
     {
 
-        
-        //setting functions
-        //bind game time
-        //implement function calls->06->start&end, 05 0a.
-        //teamid->inventory
-
-        //test big
-
         private static CombatKarts _instance;
         public static CombatKarts Instance{
             get{
@@ -31,8 +23,6 @@ namespace CKS_1._0.Model
         public Game ActiveGame{get;set;}
 
         private List<Gamemode> Gamemodes{get;set;}//list of gamemodes
-
-        public List<Player> PlayerList{get;set;}
         
         public WifiHandler wifiHandler{get;set;}
 
@@ -54,22 +44,34 @@ namespace CKS_1._0.Model
 
             ActiveGame=new Game(Gamemodes);
 
-            PlayerList=new List<Player>();
+            //PlayerList=new List<Player>();
             wifiHandler=new WifiHandler();
 
-            //Thread t2 = new Thread(()=>UpdateCycle());
-            //t2.Start();
+            Thread t2 = new Thread(()=>UpdateCycle());
+            t2.Start();
 
             //test
-            CreatePlayerTest();
+            //CreatePlayerTest();
             
         }
         public void UpdateCycle(){
             while(true)
             {   
                 foreach(Player p in wifiHandler.Clients){
-                    if(p.Client.ConState==ConnectionState.Initialized||p.Client.ConState==ConnectionState.Online){
-                        if(p.Client.ConState==ConnectionState.Online&&ActiveGame.AvailPlayers.Find(x=>x.Client.LWInv.Items.Find(x=>x.Id==0x14)==p.Client.LWInv.Items.Find(x=>x.Id==0x14))==null) ActiveGame.AvailPlayers.Add(p);
+                    if(p.Client.ConState==ConnectionState.Online){
+                        p.Client.ConState=ConnectionState.GameReady;
+                        ActiveGame.AvailPlayers.Add(p);
+                    }
+                    if(ActiveGame.State==GameState.Running&&ActiveGame.IsGameOver()){
+                        ActiveGame.State=GameState.Over;
+                        foreach(Team team in ActiveGame.Gamemode.Teams){
+                            foreach(Player teamPlayer in team.Players){
+                                wifiHandler.SendMessage(new GameMessage(teamPlayer.Client.Msgcount, false), teamPlayer.Client);
+                            }
+                        }  
+                    }
+                    if(p.Client.ConState==ConnectionState.Initialized||p.Client.ConState==ConnectionState.GameReady){
+
                         wifiHandler.SendMessage(new InventoryUpdateMessage(p.Client.Msgcount, p.Client.LWInv), p.Client);
                         Thread.Sleep(200);
                     }
@@ -90,10 +92,8 @@ namespace CKS_1._0.Model
 
             
             Client c = new Client(new IPAddress(new byte[]{ 0xc0, 0xa8, 0x00, 0x66}), WifiHandler.Port);
-            c.ConState = ConnectionState.Online;
-            c.CKInv.Items.Add(new Item(1, "TestPlayer"));
-            c.CKInv.Items.Add(new Item(2, new byte[]{0x05}));
-            c.CKInv.Items.Add(new Item(3, new byte[]{0x1e}));
+            c.ConState = ConnectionState.GameReady;
+            
             
         
 
@@ -134,7 +134,7 @@ namespace CKS_1._0.Model
             Player p = new Player(c);
             ActiveGame.AvailPlayers.Add(p);
             wifiHandler.Clients.Add(p);
-            PlayerList.Add(p);//eh no no no
+            //PlayerList.Add(p);//eh no no no
             
         }
     }

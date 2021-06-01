@@ -210,6 +210,10 @@
   background-color: rgba(14, 35, 78, 1);
   color: white;
 }
+.apply-btn:hover{
+  cursor: pointer;
+  background-color: #df0512;
+}
 button:hover {
   cursor: pointer;
   background-color: #df0512;

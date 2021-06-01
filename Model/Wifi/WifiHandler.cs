@@ -16,9 +16,9 @@ namespace CKS_1._0.Model.Wifi
         public IPAddress Router = new IPAddress(new byte[] { 0xff, 0xff, 0xff, 0xff });
 
         public List<Player> Clients {get;set;}
-        public string teststring {get;set;}
         public Inventory LWItemsUsed {get;set;}
         public Inventory CKItemsUsed {get;set;}
+
 
         
         //public IPAddress Gun = new IPAddress(new byte[] { 0xc0, 0xa8, 0x1f, 0xf5 });
@@ -69,9 +69,7 @@ namespace CKS_1._0.Model.Wifi
             CKItemsUsed.Items.Add(new Item(0x02, 0, new byte[]{0x00}, new byte[]{0xff}));//shield duration
             CKItemsUsed.Items.Add(new Item(0x03, 0, new byte[]{0x00}, new byte[]{0xff}));//shield cooldown
 
-            teststring = "NUTTINGAH!?";
-            teststring +="LOL?";
-            teststring += "Thread: "+Thread.CurrentThread.ManagedThreadId+";";
+
 
             Thread t1 = new Thread(()=>WifiReader());
             t1.Start();
@@ -83,8 +81,6 @@ namespace CKS_1._0.Model.Wifi
             client.Socket.Send(m, m.Length, client.endPoint);    
         }
         public void WifiReader(){
-            teststring += "BUTISURELNUTING?!";
-            teststring += "Thread: "+Thread.CurrentThread.ManagedThreadId+";";
             using (UdpClient socket = new UdpClient(new IPEndPoint(IPAddress.Any, Port)))
             {
                 IPEndPoint remoteEndPoint = new IPEndPoint(0, 0);
@@ -100,6 +96,7 @@ namespace CKS_1._0.Model.Wifi
                                 {                                    
                                     Player p = new Player(new Client(remoteEndPoint.Address, Port));
                                     Clients.Add(p);
+                                    p.Client.ConState=ConnectionState.Connecting;
                                     SendMessage(new AuthenticateMessage(DateTime.Now), p.Client);
                                 }
                                 break;
@@ -161,38 +158,6 @@ namespace CKS_1._0.Model.Wifi
                                 break;
                         }
                     }    
-                }
-            }
-        }
-        public void BroadcastListener(){
-            bool ReaderStartet = false;
-            teststring += "BUTISURELNUTING?!";
-            teststring += "Thread: "+Thread.CurrentThread.ManagedThreadId+";";
-            
-            using (UdpClient socket = new UdpClient(new IPEndPoint(IPAddress.Any, Port)))
-            {
-                IPEndPoint remoteEndPoint = new IPEndPoint(0, 0);
-                while(true){
-                    byte[] datagramReceived = socket.Receive(ref remoteEndPoint);
-                    string message = Encoding.ASCII.GetString(datagramReceived, 0, datagramReceived.Length);
-                    teststring += "dingdong!";
-                    teststring += message;
-                    if(!ReaderStartet){//client found
-                        if(!ReaderStartet)//client not in clientlist
-                        {
-                            
-                            //IPAddress ip = new IPAddress(new byte[]{0x00,0x00,0x00,0xff});//ip from client
-                            //Client c = new Client(new IPAddress(new byte[]{0x00,0x00,0x00,0xff}), Port);
-                            
-                            if(!ReaderStartet){
-                                //start wifireader
-                                Thread t2 = new Thread(()=>WifiReader());
-                                t2.Start();
-                                ReaderStartet=true;
-                            }
-                        }
-                    }
-                    
                 }
             }
         }

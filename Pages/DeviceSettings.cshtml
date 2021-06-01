@@ -41,7 +41,7 @@
                   <li>Background Brightness</li>
                   <li>Damaged Glow Color</li>
                 </ul>
-                <button type="submit" class="apply-btn">APPLY</button>
+                <input name="settingssubmit" type="submit" class="apply-btn" onclick="loadingShow(this);" value="APPLY"/>
               </div>
               <div class="column" style="background-color:white;">
                 <ul class="column2">
@@ -59,7 +59,7 @@
                   </select>
                 </li>
                 <li>
-                  <select class="player-health">
+                  <select name="health" class="player-health">
                     @foreach (var value in Model.CK.wifiHandler.LWItemsUsed.Items.Find(x=>x.Id==0x16).AllowedValues)
                     {
                         if(value.SequenceEqual(player.Client.LWInv.Items.Find(x=>x.Id==0x16).Value))
@@ -72,7 +72,7 @@
                   </select>
                 </li>
                 <li>
-                  <select class="player-fire">
+                  <select name="friendlyfire" class="player-fire">
                     @foreach (var value in Model.CK.wifiHandler.LWItemsUsed.Items.Find(x=>x.Id==0x17).AllowedValues)
                     {
                         if(value.SequenceEqual(player.Client.LWInv.Items.Find(x=>x.Id==0x17).Value))
@@ -85,7 +85,7 @@
                   </select>
                 </li>
                 <li>
-                  <select class="player-shock">
+                  <select name="shieldduration" class="player-shock">
                     @foreach (var value in Model.CK.wifiHandler.CKItemsUsed.Items.Find(x=>x.Id==0x02).AllowedValues)
                     {
                         if(value.SequenceEqual(player.Client.CKInv.Items.Find(x=>x.Id==0x02).Value))
@@ -98,7 +98,7 @@
                   </select>
                 </li>
                 <li>
-                  <select class="player-cooldown">
+                  <select name="shieldcooldown" class="player-cooldown">
                     @foreach (var value in Model.CK.wifiHandler.CKItemsUsed.Items.Find(x=>x.Id==0x03).AllowedValues)
                     {
                         if(value.SequenceEqual(player.Client.CKInv.Items.Find(x=>x.Id==0x03).Value))
@@ -225,7 +225,7 @@
             <div class="column" style="background-color:white;">
               <ul class="column4">
                 <li>
-                  <select class="clips"> 
+                  <select name="clips" class="clips"> 
                     @foreach (var value in Model.CK.wifiHandler.LWItemsUsed.Items.Find(x=>x.Id==0x34).AllowedValues)
                     {
                         if(value.SequenceEqual(player.Client.LWInv.Items.Find(x=>x.Id==0x34).Value))
@@ -238,7 +238,7 @@
                   </select>
                 </li>
                 <li>
-                  <select class="cartridges">
+                  <select name="bullets" class="cartridges">
                     @foreach (var value in Model.CK.wifiHandler.LWItemsUsed.Items.Find(x=>x.Id==0x35).AllowedValues)
                     {
                         if(value.SequenceEqual(player.Client.LWInv.Items.Find(x=>x.Id==0x35).Value))
@@ -266,7 +266,7 @@
                     </select>
                   </li>
                   <li>
-                    <select class="fire-damage">
+                    <select name="damage" class="fire-damage">
                       @foreach (var value in Model.CK.wifiHandler.LWItemsUsed.Items.Find(x=>x.Id==0x38).AllowedValues)
                       {
                           if(value.SequenceEqual(player.Client.LWInv.Items.Find(x=>x.Id==0x38).Value))
@@ -279,7 +279,7 @@
                     </select>
                   </li>
                   <li>
-                    <select class="reload-duration">
+                    <select name="reloadduration" class="reload-duration">
                       @foreach (var value in Model.CK.wifiHandler.LWItemsUsed.Items.Find(x=>x.Id==0x39).AllowedValues)
                       {
                           if(value.SequenceEqual(player.Client.LWInv.Items.Find(x=>x.Id==0x39).Value))
@@ -292,7 +292,7 @@
                     </select>
                   </li>
                   <li>
-                    <select class="autoreload-mode">
+                    <select name="autoreload" class="autoreload-mode">
                       @foreach (var value in Model.CK.wifiHandler.LWItemsUsed.Items.Find(x=>x.Id==0x3a).AllowedValues)
                       {
                           if(value.SequenceEqual(player.Client.LWInv.Items.Find(x=>x.Id==0x3a).Value))
@@ -434,7 +434,7 @@
           </div>
         </form>
       }
-    
+ <!--   
 <button class="accordion">Player 2</button>
 <div class="panel">
    <div class="row">
@@ -1641,7 +1641,8 @@
 
     </ul>
   </div>
-</div>
+ 
+</div> -->
 </div>
 
 
@@ -1652,22 +1653,32 @@
 
 <script>
   var acc = document.getElementsByClassName("accordion");
-var i;
+  var i;
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    /* Toggle between adding and removing the "active" class,
-    to highlight the button that controls the panel */
-    this.classList.toggle("active");
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      /* Toggle between adding and removing the "active" class,
+      to highlight the button that controls the panel */
+      this.classList.toggle("active");
 
-    /* Toggle between hiding and showing the active panel */
-    
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
-  });
-}
-  </script>
+      /* Toggle between hiding and showing the active panel */
+      
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  }
+  var btns = document.querySelector(".settingssubmit");
+  function loadingShow(thisfield){
+    thisfield.value = "Loading";
+    countDownInterval = setInterval(() => {
+      dotter(thisfield);
+    }, 200);
+  }
+  function dotter(thisfield){
+    thisfield.value = thisfield.value + ".";
+  }
+</script>

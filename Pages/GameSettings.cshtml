@@ -6,13 +6,6 @@
 <section class="main">
 <div class="grid-container">
   <div class="Page-name"><p id="header">GAME SETTINGS</p></div>
-  <p>@Model.CK.wifiHandler.teststring</p>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <p>@Model.test</p>
   @if(Model.CK.ActiveGame.Gamemode.Id==1){
     <div class="Team-x"> <!-- Gamemode 1 -->
       <label for="teamx"></label>
@@ -138,6 +131,7 @@
           @System.Text.Encoding.UTF8.GetString(player.Client.CKInv.Items[0].Value)
           <form method="post">
             <select class="teamselect" name="teamselect" onchange="this.form.submit()">
+            
               <option value="">Available Players</option>
               @foreach (var team in Model.CK.ActiveGame.Gamemode.Teams){
                 <option value="@BitConverter.ToInt16(Model.CK.ConvertTo4Byte(player.Client.LWInv.Items.Find(x=>x.Id==0x14).Value), 0) @team.Id">@team.Name</option>
@@ -149,27 +143,54 @@
     </ul>
   </div>
   <div class="Timer">
-        <div class="container">
+    <div class="container">
     <!-- form -->
-    <form class="form">
+    <form class="form" method="post">
       <!-- countdown time input field -->
-      <input type="number" min="1" class="time-input" placeholder="Enter Game duration">
-      <!-- options --> <!-- hours and seconds removed and are here  <option value="hours">Hours</option>         <option value="seconds">Seconds</option> -->
-      <select name="format">
-        <option value="minutes">Minutes</option>
-      </select>
+      @if(Model.CK.ActiveGame.State==GameState.Running){
+        <input id="timeremaining" class="timeremaining" name="timeremaining" type="hidden" value="@Model.CK.ActiveGame.GetRemainingGameTicks()"/>
+      }
+      <div class="timewrap">
+        <label for="durationwrapper" class="minlabel">Duration:</label>
+        <div id="durationwrapper" class="minwrapper">
+          @if(Model.CK.ActiveGame.State==GameState.Running){
+            <input name="gameduration" type="number" min="1" value="@Model.CK.ActiveGame.GameDuration" class="time-input" placeholder="Enter Game duration" onfocusout="this.form.submit()" disabled>
+          }else{
+            <input name="gameduration" type="number" min="1" value="@Model.CK.ActiveGame.GameDuration" class="time-input" placeholder="Enter Game duration" onfocusout="this.form.submit()">
+          }
+          <b class="minutes">Min</b>
+        </div>
+      </div>
+      <div class="timewrap">
+        <label for="delaywrapper" class="minlabel">Delay:</label>
+        <div id="delaywrapper" class="minwrapper"> 
+          @if(Model.CK.ActiveGame.State==GameState.Running){
+            <input name="gamedelay" type="number" min="1" value="@Model.CK.ActiveGame.GameDelay" class="time-input" placeholder="Enter Game delay" onfocusout="this.form.submit()" disabled>
+          }else{
+            <input name="gamedelay" type="number" min="1" value="@Model.CK.ActiveGame.GameDelay" class="time-input" placeholder="Enter Game delay" onfocusout="this.form.submit()">
+          }
+          <b class="minutes">Sec</b>
+        </div>
+      </div>
+      
+      
       <!-- submit button or set button -->
-      <button type="submit" class="set-btn">SET</button>
-    </form>
-    <!-- countdown text -->
-    <p class="countdown">00 : 00 : 00</p>
 
-    <!-- buttons -->
-    <div class="buttons">
-      <button class="stop-btn" disabled>STOP</button>
-      <button class="reset-btn" disabled>RESET</button>
-    </div>
+    
+      <!-- countdown text -->
+      <p class="countdown">00 : 00 : 00</p>
+
+      <!-- buttons -->
+      <div class="buttons">
+        @if(Model.CK.ActiveGame.State!=GameState.Running){
+          <button id="startbtn" name="gamestart" class="startstop" type="submit" >Start</button>
+        }else{
+          <button id="stopbtn" name="gamestop" class="startstop" type="submit" >Stop</button>
+        }
+      </div>
+    </form>
   </div>
   </div>
 </div>
 </section>
+<script src="~/js/timer.js" asp-append-version="true"></script>

@@ -47,6 +47,7 @@ namespace CKS_1._0.Model
         Authenticated,
         Initialized,
         PartlyConnected, //might need to be seperated into 3 states-> GunConnected, MMCUConnected, NoSensorConnected
-        Online
+        Online,
+        GameReady
     }
 }

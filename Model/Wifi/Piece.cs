@@ -36,6 +36,7 @@ namespace CKS_1._0.Model.Wifi
         }
         public Piece(string s)//string
         {
+            Bytes = new byte[]{};
             foreach(char c in s){
                 Bytes=AddByteToArrayEnd(Bytes, Convert.ToByte(c));
             }
