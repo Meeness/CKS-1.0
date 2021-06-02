@@ -10,6 +10,7 @@ namespace CKS_1._0.Model.Wifi.WifiTemplates
         public IdentifierBlock(byte classification, byte msgcount):base(
             new List<Piece>{
                 new ClassificationPiece(classification),
+                new SeparatorPiece(),
                 new MessageCountPiece(msgcount),
                 new TypePiece()
             }

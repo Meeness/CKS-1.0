@@ -20,7 +20,7 @@ namespace CKS_1._0.Model.Wifi
 
         public Piece(byte i)//1 byte
         {
-            Bytes = BitConverter.GetBytes(i);
+            Bytes = new byte[]{i};
         }
         public Piece(UInt16 i)//2 bytes
         {

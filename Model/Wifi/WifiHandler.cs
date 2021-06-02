@@ -14,6 +14,7 @@ namespace CKS_1._0.Model.Wifi
 
         public const int Port = 53443;
         public IPAddress Router = new IPAddress(new byte[] { 0xff, 0xff, 0xff, 0xff });
+        public UdpClient Socket {get;set;}
 
         public List<Player> Clients {get;set;}
         public Inventory LWItemsUsed {get;set;}
@@ -69,6 +70,7 @@ namespace CKS_1._0.Model.Wifi
             CKItemsUsed.Items.Add(new Item(0x02, 0, new byte[]{0x00}, new byte[]{0xff}));//shield duration
             CKItemsUsed.Items.Add(new Item(0x03, 0, new byte[]{0x00}, new byte[]{0xff}));//shield cooldown
 
+            Socket = new UdpClient(new IPEndPoint(IPAddress.Any, Port));
 
 
             Thread t1 = new Thread(()=>WifiReader());
@@ -78,14 +80,13 @@ namespace CKS_1._0.Model.Wifi
         }
         public void SendMessage(Message msg, Client client){
             byte[] m = msg.CombinedMessage();
-            client.Socket.Send(m, m.Length, client.endPoint);    
+            Socket.Send(m, m.Length, client.endPoint);    
         }
         public void WifiReader(){
-            using (UdpClient socket = new UdpClient(new IPEndPoint(IPAddress.Any, Port)))
-            {
+            
                 IPEndPoint remoteEndPoint = new IPEndPoint(0, 0);
                 while(true){
-                    byte[] datagramReceived = socket.Receive(ref remoteEndPoint);                    
+                    byte[] datagramReceived = Socket.Receive(ref remoteEndPoint);                    
                     if(datagramReceived.Length>=8&&Encoding.ASCII.GetString(datagramReceived, 0, 4)=="<LW>")
                     {
                         
@@ -93,7 +94,7 @@ namespace CKS_1._0.Model.Wifi
                         {
                             case 0x02:
                                 if(Clients.Find(x=>x.Client.endPoint.Address.ToString()==remoteEndPoint.Address.ToString())==null)//client !exist
-                                {                                    
+                                {                               
                                     Player p = new Player(new Client(remoteEndPoint.Address, Port));
                                     Clients.Add(p);
                                     p.Client.ConState=ConnectionState.Connecting;
@@ -143,7 +144,9 @@ namespace CKS_1._0.Model.Wifi
                                             nextValuelen=datagramReceived[i+3];
                                             nextIdNdx=i+4+nextValuelen;
                                             Item item = p9.Client.LWInv.Items.Find(x=>x.Id==datagramReceived[i]);
-                                            Buffer.BlockCopy(item.ReadDirection==ReadingDirection.Forwards?datagramReceived:Item.ReverseBytes(datagramReceived), i+4, item.Value, 0, nextValuelen);
+                                            byte[] b = new byte[nextValuelen];
+                                            Buffer.BlockCopy(datagramReceived, i+4, b, 0, nextValuelen);
+                                            item.Value = b;
                                         } 
                                     }
                                     if(p9.Client.ConState==ConnectionState.Initialized)p9.Client.ConState=ConnectionState.Online;
@@ -159,7 +162,7 @@ namespace CKS_1._0.Model.Wifi
                         }
                     }    
                 }
-            }
+            
         }
     }
 }

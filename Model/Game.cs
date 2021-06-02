@@ -86,7 +86,7 @@ namespace CKS_1._0.Model
                     
                     if(inv.Items.Count>0)wifiHandler.SendMessage(new GamemodeItemUpdateMessage(player.Client.Msgcount, inv), player.Client);
 
-                    wifiHandler.SendMessage(new GameMessage(player.Client.Msgcount, true, GameStart, Convert.ToUInt32(GameDuration)), player.Client);
+                    wifiHandler.SendMessage(new GameMessage(player.Client.Msgcount, true, GameStart, Convert.ToUInt32(GameDuration*60000)), player.Client);
                 }
             }
         }

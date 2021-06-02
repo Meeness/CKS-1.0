@@ -16,6 +16,7 @@
     <div class="guns">
       @foreach(var player in Model.CK.wifiHandler.Clients)
       {
+        if(player.Client.ConState>=_0.Model.ConnectionState.Online){
         <form method="post">
           <input name="hiddenplayerid" type="hidden" value="@BitConverter.ToInt16(Model.CK.ConvertTo4Byte(player.Client.LWInv.Items.Find(x=>x.Id==0x14).Value), 0)"/>
           <button class="accordion" type="button">@System.Text.Encoding.UTF8.GetString(player.Client.CKInv.Items[0].Value)</button>
@@ -433,6 +434,7 @@
             </div>
           </div>
         </form>
+        }
       }
  <!--   
 <button class="accordion">Player 2</button>
