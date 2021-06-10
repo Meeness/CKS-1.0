@@ -12,7 +12,7 @@ namespace CKS_1._0.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-        public CombatKarts ck = CombatKarts.Instance;
+        public CombatKarts CK = CombatKarts.Instance;
 
         public IndexModel(ILogger<IndexModel> logger)
         {

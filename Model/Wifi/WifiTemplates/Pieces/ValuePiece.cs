@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 namespace CKS_1._0.Model.Wifi.WifiTemplates
 {
     public class ValuePiece:Piece{
-        public ValuePiece(byte[] value, int direction):base(value, direction){}
-        public ValuePiece(byte[] value, ReadingDirection direction):base(value, direction){}
+        public ValuePiece(byte[] value):base(value){}
         public ValuePiece(byte value):base(value){}
         public ValuePiece(UInt16 value):base(value){}
         public ValuePiece(UInt32 value):base(value){}

@@ -10,42 +10,33 @@ namespace CKS_1._0.Model.Wifi
     public abstract class Piece{
         
         public byte[] Bytes {get;private set;}
-        public ReadingDirection ReadDirection {get; private set;}
 
-        public Piece( byte[] bytes, int direction) //byte[]
+
+        public Piece( byte[] bytes) //byte[]
         {
-            ReadDirection = (ReadingDirection)direction;
             Bytes = bytes;
         }
-        public Piece( byte[] bytes, ReadingDirection direction) //byte[]
-        {
-            ReadDirection = direction;
-            Bytes = bytes;
-        }
+
 
         public Piece(byte i)//1 byte
         {
-            ReadDirection = ReadingDirection.Forwards; 
-            Bytes = BitConverter.GetBytes(i);
+            Bytes = new byte[]{i};
         }
         public Piece(UInt16 i)//2 bytes
         {
-            ReadDirection = ReadingDirection.Backwards; 
             Bytes = BitConverter.GetBytes(i);                 
         }
         public Piece(UInt32 i)//4 bytes
         {
-            ReadDirection = ReadingDirection.Backwards; 
             Bytes = BitConverter.GetBytes(i);
         }
         public Piece(long i)//8 bytes
         {
-            ReadDirection = ReadingDirection.Backwards; 
             Bytes = BitConverter.GetBytes(i);
         }
         public Piece(string s)//string
         {
-            ReadDirection = ReadingDirection.Forwards;
+            Bytes = new byte[]{};
             foreach(char c in s){
                 Bytes=AddByteToArrayEnd(Bytes, Convert.ToByte(c));
             }

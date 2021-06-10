@@ -17,6 +17,28 @@ namespace CKS_1._0.Model.Wifi
             Blocks.Add(new WaterMark());
             Blocks.Add(new IdentifierBlock(classification, msgcount));
         }
+        public byte[] CombinedMessage()
+        {
+            byte[][] blockArr = new byte[Blocks.Count][];
+            for(int i = 0;i<Blocks.Count;i++){
+                byte[][] pieceArr = new byte[Blocks[i].Pieces.Count][];
+                for(int j = 0;j<Blocks[i].Pieces.Count;j++){
+                    pieceArr[j] = Blocks[i].Pieces[j].Bytes;
+                }
+                blockArr[i] = Combine(pieceArr);
+            }
+            return Combine(blockArr);
+        }
+        private byte[] Combine(params byte[][] arrays)
+        {
+            byte[] rv = new byte[arrays.Sum(a => a.Length)];
+            int offset = 0;
+            foreach (byte[] array in arrays) {
+                System.Buffer.BlockCopy(array, 0, rv, offset, array.Length);
+                offset += array.Length;
+            }
+            return rv;
+        }
 
     }
 }

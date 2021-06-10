@@ -3,7 +3,11 @@ C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\css\devicesett
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\css\site.css
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\css\teammode.css
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\favicon.ico
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\images\gun.png
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\images\joystick.png
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\images\logo.png
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\images\stats.png
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\images\steeringwheel.png
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\js\deathmatch.js
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\js\site.js
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\js\teammode.js

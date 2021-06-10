@@ -12,7 +12,7 @@ namespace CKS_1._0.Model.Wifi.WifiTemplates
                 new IdentifierPiece(item.Id),
                 new SeparatorPiece(),
                 new ValueLengthPiece(Convert.ToByte(item.Value.Length)),
-                new ValuePiece(item.Value, item.ReadDirection)
+                new ValuePiece(item.Value)
             }
         ){}
     }
