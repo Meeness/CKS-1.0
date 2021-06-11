@@ -7,17 +7,12 @@ using System.Numerics;
 
 namespace CKS_1._0.Model.Wifi
 {
-    public abstract class Piece{
-        
+    public abstract class Piece{  
         public byte[] Bytes {get;private set;}
-
-
         public Piece( byte[] bytes) //byte[]
         {
             Bytes = bytes;
         }
-
-
         public Piece(byte i)//1 byte
         {
             Bytes = new byte[]{i};

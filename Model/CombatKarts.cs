@@ -12,7 +12,6 @@ namespace CKS_1._0.Model
 {
     public class CombatKarts
     {
-
         private static CombatKarts _instance;
         public static CombatKarts Instance{
             get{
@@ -21,9 +20,7 @@ namespace CKS_1._0.Model
                 }
         }
         public Game ActiveGame{get;set;}
-
         private List<Gamemode> Gamemodes{get;set;}//list of gamemodes
-        
         public WifiHandler wifiHandler{get;set;}
 
         private CombatKarts()
