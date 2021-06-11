@@ -104,3 +104,4 @@ C:\Users\LarsV\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\CKS-1.0.RazorTargetAsse
 C:\Users\LarsV\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\CKS-1.0.Views.pdb
 C:\Users\LarsV\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\CKS-1.0.csproj.CopyComplete
 C:\Users\LarsV\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\CKS-1.0.genruntimeconfig.cache
+C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\Razor\Pages\scoreboard.cshtml.g.cs
