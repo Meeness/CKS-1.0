@@ -96,6 +96,14 @@ namespace CKS_1._0.Model
             }
             return returnArr;
         }
+        public byte[] ConvertValueTo4Byte(){
+            byte[] returnArr = new byte[4];
+            for(int i =0;i<4;i++){
+                if(Value.Length>i)returnArr[i]=Value[i];
+                else returnArr[i]=0x00;
+            }
+            return returnArr;
+        }
 
         
         public byte[] AddByteToArrayEnd(byte[] bytes, byte newByte){
@@ -103,6 +111,11 @@ namespace CKS_1._0.Model
             bytes.CopyTo(newArray, 0);
             newArray[bytes.Length] = newByte;
             return newArray;
+        }
+        public byte[] GetLong(){
+            byte[] returnArr = new byte[]{0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+            Buffer.BlockCopy(ReverseBytes(Value), 0, returnArr, (returnArr.Length-Value.Length)-1, Value.Length-1);
+            return returnArr;
         }
 
 

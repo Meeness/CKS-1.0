@@ -112,12 +112,15 @@
   }
 
   .timetodie{
-    padding-top: 5px;
     position:relative;
     left: 28%;
   }
 
   .background-brightness{
+    position:relative;
+    left: 28%;
+  }
+  .damaged-color{
     position:relative;
     left: 28%;
   }

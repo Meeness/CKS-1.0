@@ -1,5 +1,6 @@
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\css\deathmatch.css
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\css\devicesettings.css
+C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\css\scoreboard.css
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\css\site.css
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\css\teammode.css
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\favicon.ico
@@ -10,7 +11,7 @@ C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\images\stats.png
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\images\steeringwheel.png
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\js\deathmatch.js
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\js\site.js
-C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\js\teammode.js
+C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\js\timer.js
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Host\bin\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css

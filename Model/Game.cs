@@ -14,22 +14,30 @@ namespace CKS_1._0.Model
         public Gamemode Gamemode {get;set;}
         public List<Gamemode> GamemodeList {get;set;}
 
-        public DateTime GameStart{get;set;}
+        public DateTime GameStart{get;set;} 
         public double GameDuration{get;set;}
         public double GameDelay{get;set;}
+
+        public long RemainingGameTime{get;set;}
         
         public List<Player> AvailPlayers{get;set;}
 
-        public Game(List<Gamemode> gamemodes)
+
+        public Game(List<Gamemode> gamemodes, List<Player> clients)
         {
             GamemodeList = gamemodes;
-            AvailPlayers = new List<Player>();
+            GetAvailPlayers(clients);
             State = GameState.Ready;
             GameDuration=15;
             GameDelay=5;
             SelectGameMode(1);
         }
         public void SelectGameMode(int id){
+            ClearTeams();
+            Gamemode G =GamemodeList.Find(x=>x.Id==id);
+            if(G!=null)Gamemode=G;
+        }
+        public void ClearTeams(){
             if(Gamemode!=null){
                 foreach(Team team in Gamemode.Teams){
 
@@ -40,8 +48,13 @@ namespace CKS_1._0.Model
                     team.Players=new List<Player>();
                 }
             }
-            Gamemode G =GamemodeList.Find(x=>x.Id==id);
-            if(G!=null)Gamemode=G;
+        }
+        public void GetAvailPlayers(List<Player> clients){
+            AvailPlayers=new List<Player>{};
+            foreach (Player player in clients)
+            {
+                if(player.Client.ConState==ConnectionState.GameReady)AvailPlayers.Add(player);
+            }
         }
         public void ChangeTeam(Player player, int ToTeamId){
             if(player.TeamId<=Gamemode.Teams.Count||ToTeamId<=Gamemode.Teams.Count){
@@ -76,7 +89,7 @@ namespace CKS_1._0.Model
             foreach(Team team in Gamemode.Teams){
                 foreach(Player player in team.Players){
                     Inventory inv = new Inventory();
-                    byte teamid = Convert.ToByte(player.TeamId);
+                    byte teamid = Convert.ToByte(player.TeamId-1);
                     if(player.Client.LWInv.Items.Find(x=>x.Id==0x15).Value[0]!=teamid)inv.Items.Add(new Item(0x15, new byte[]{teamid}));
                     foreach(Item item in player.Client.LWInv.Items){
                         foreach(Item setting in Gamemode.Settings.Items){
@@ -92,6 +105,7 @@ namespace CKS_1._0.Model
         }
         public void EndGame(WifiHandler wifiHandler){
             State = GameState.Over;
+            RemainingGameTime = GetRemainingGameTicks();
             foreach(Team team in Gamemode.Teams){
                 foreach(Player player in team.Players){
                     wifiHandler.SendMessage(new GameMessage(player.Client.Msgcount, false), player.Client);
