@@ -28,12 +28,12 @@ namespace CKS_1._0.Pages
         public IActionResult OnPost(){
             //teamselect
             var teamselect = Request.Form["teamselect"];
-            if((teamselect!=""&&(String)teamselect!=null)&&CK.ActiveGame.State!=GameState.Running){
+            if((teamselect!=""&&(String)teamselect!=null)&&CK.ActiveGame.State==GameState.Ready){
                 TeamSelect(teamselect);
             }
             //change team name
             var teamindex = Request.Form["teamindex"];
-            if(teamindex != "" && (String)teamindex != null&&CK.ActiveGame.State!=GameState.Running){
+            if(teamindex != "" && (String)teamindex != null&&CK.ActiveGame.State==GameState.Ready){
                 var teamname = Request.Form["teamname"];
                 if(teamname != "" && (String)teamname != null){
                     CK.ActiveGame.Gamemode.Teams[Convert.ToInt16(teamindex)].Name=teamname;
@@ -41,7 +41,7 @@ namespace CKS_1._0.Pages
             }
             //gamemode select
             var modeselect = Request.Form["modeselect"];
-            if(modeselect != "" && (String)modeselect != null&&CK.ActiveGame.State!=GameState.Running){
+            if(modeselect != "" && (String)modeselect != null&&CK.ActiveGame.State==GameState.Ready){
                 CK.ActiveGame.SelectGameMode(Convert.ToInt16(modeselect));
             }
 
@@ -58,14 +58,22 @@ namespace CKS_1._0.Pages
             //game start & stop
             var gamestart = Request.Form["gamestart"];
             var gamestop = Request.Form["gamestop"];
+            var gameready = Request.Form["gameready"];
 
             if((String)gamestart!=null){
                 CK.ActiveGame.StartGame(CK.wifiHandler);
-
             }else if((String)gamestop!=null){
                 CK.ActiveGame.EndGame(CK.wifiHandler);
+            }else if((String)gameready!=null){
+                CK.NewGame();
             }
 
+
+            //testmode engage
+            var testmode = Request.Form["testmode"];
+            if(testmode.Count>0){
+                CK.CreatePlayerTest();
+            }
  
             
 

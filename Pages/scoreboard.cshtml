@@ -4,188 +4,90 @@
     ViewData["Title"] = "ScoreBoard";
 }
 <section class="main">
-    <link rel="stylesheet" href="~/css/scoreboard.css" />
-<div class="grid-container">
-  <div class="Page-name"><p id="header">Score Board</p></div>
+  <form id="testmode" method="post"></form>
+  <link rel="stylesheet" href="~/css/scoreboard.css" />
+  <div class="grid-container">
+    <div class="Page-name">
+      <p id="header">Score Board</p>
+    </div>
 
-  <div class="Timer">
-    <div class="container">
-    <!-- form -->
-    <form class="form" method="post">
-      <!-- countdown time input field -->
-      @if(Model.CK.ActiveGame.State==GameState.Running){
-        <input id="timeremaining" class="timeremaining" name="timeremaining" type="hidden" value="@Model.CK.ActiveGame.GetRemainingGameTicks()"/>
-      }
-      <div class="timewrap">
-        <label for="durationwrapper" class="minlabel">Duration:</label>
-        <div id="durationwrapper" class="minwrapper">
+    <div class="Timer">
+      <div class="container">
+        <!-- form -->
+        <form class="form" method="post">
+          <!-- countdown time input field -->
           @if(Model.CK.ActiveGame.State==GameState.Running){
-            <input name="gameduration" type="number" min="1" value="@Model.CK.ActiveGame.GameDuration" class="time-input" placeholder="Enter Game duration" onfocusout="this.form.submit()" disabled>
-          }else{
-            <input name="gameduration" type="number" min="1" value="@Model.CK.ActiveGame.GameDuration" class="time-input" placeholder="Enter Game duration" onfocusout="this.form.submit()">
+            <input id="timeremaining" class="timeremaining" name="timeremaining" type="hidden" value="@Model.CK.ActiveGame.GetRemainingGameTicks()"/>
+          }else if(Model.CK.ActiveGame.State==GameState.Over){
+            <input id="timeremaining" class="stoppedtimeremaining" name="timeremaining" type="hidden" value="@Model.CK.ActiveGame.RemainingGameTime"/>
           }
-          <b class="minutes">Min</b>
-        </div>
-      </div>
-      <div class="timewrap">
-        <label for="delaywrapper" class="minlabel">Delay:</label>
-        <div id="delaywrapper" class="minwrapper"> 
-          @if(Model.CK.ActiveGame.State==GameState.Running){
-            <input name="gamedelay" type="number" min="1" value="@Model.CK.ActiveGame.GameDelay" class="time-input" placeholder="Enter Game delay" onfocusout="this.form.submit()" disabled>
-          }else{
-            <input name="gamedelay" type="number" min="1" value="@Model.CK.ActiveGame.GameDelay" class="time-input" placeholder="Enter Game delay" onfocusout="this.form.submit()">
-          }
-          <b class="minutes">Sec</b>
-        </div>
-          <div class="grid-container2">
-  <div>Player 1
- <div class="stats">
-  <br>Hits:
-  <br>Accuracy:
-  <br>Shields Used:
-  <br>Hitpoints:
-  <br>Cartridges:
-  <br>Clips:
-</div>
-  </div>
-  <div>Player 2
-     <div class="stats">
-  <br>Hits:
-  <br>Accuracy:
-  <br>Shields Used:
-  <br>Hitpoints:
-  <br>Cartridges:
-  <br>Clips:
-</div>
-  </div>
-  <div>Player 3
-     <div class="stats">
-  <br>Hits:
-  <br>Accuracy:
-  <br>Shields Used:
-  <br>Hitpoints:
-  <br>Cartridges:
-  <br>Clips:
-</div>
-  </div>  
-  <div>Player 4
-     <div class="stats">
-  <br>Hits:
-  <br>Accuracy:
-  <br>Shields Used:
-  <br>Hitpoints:
-  <br>Cartridges:
-  <br>Clips:
-</div>
-  </div>
-  <div>Player 5
-     <div class="stats">
-  <br>Hits:
-  <br>Accuracy:
-  <br>Shields Used:
-  <br>Hitpoints:
-  <br>Cartridges:
-  <br>Clips:
-</div>
-  </div>
-  <div>Player 6
-     <div class="stats">
-  <br>Hits:
-  <br>Accuracy:
-  <br>Shields Used:
-  <br>Hitpoints:
-  <br>Cartridges:
-  <br>Clips:
-</div>
-  </div>
-  <div>Player 7
-     <div class="stats">
-  <br>Hits:
-  <br>Accuracy:
-  <br>Shields Used:
-  <br>Hitpoints:
-  <br>Cartridges:
-  <br>Clips:
-</div>
-  </div>
-  <div>Player 8
-     <div class="stats">
-  <br>Hits:
-  <br>Accuracy:
-  <br>Shields Used:
-  <br>Hitpoints:
-  <br>Cartridges:
-  <br>Clips:
-</div>
-  </div>
-  <div>Player 1
- <div class="stats">
-  <br>Hits:
-  <br>Accuracy:
-  <br>Shields Used:
-  <br>Hitpoints:
-  <br>Cartridges:
-  <br>Clips:
-</div>
-  </div>
-  <div>Player 2
-     <div class="stats">
-  <br>Hits:
-  <br>Accuracy:
-  <br>Shields Used:
-  <br>Hitpoints:
-  <br>Cartridges:
-  <br>Clips:
-</div>
-  </div>
-  <div>Player 3
-     <div class="stats">
-  <br>Hits:
-  <br>Accuracy:
-  <br>Shields Used:
-  <br>Hitpoints:
-  <br>Cartridges:
-  <br>Clips:
-</div>
-  </div>  
-  <div>Player 4
-     <div class="stats">
-  <br>Hits:
-  <br>Accuracy:
-  <br>Shields Used:
-  <br>Hitpoints:
-  <br>Cartridges:
-  <br>Clips:
-</div>
-  </div>
-      </div>
-
-      <div class="grid-container3">
-        <div>Most Brutal:
-          <br>Most accurate:
-          <br>Most protective:
+          <div class="timewrap">
+            <label for="durationwrapper" class="minlabel">Duration:</label>
+            <div id="durationwrapper" class="minwrapper">
+              @if(Model.CK.ActiveGame.State==GameState.Running||Model.CK.ActiveGame.State==GameState.Over){
+                <input name="gameduration" type="number" min="1" value="@Model.CK.ActiveGame.GameDuration" class="time-input" placeholder="Enter Game duration" onfocusout="this.form.submit()" disabled>
+              }else{
+                <input name="gameduration" type="number" min="1" value="@Model.CK.ActiveGame.GameDuration" class="time-input" placeholder="Enter Game duration" onfocusout="this.form.submit()">
+              }
+              <b class="minutes">Min</b>
+            </div>
           </div>
+          <div class="timewrap">
+            <label for="delaywrapper" class="minlabel">Delay:</label>
+            <div id="delaywrapper" class="minwrapper"> 
+              @if(Model.CK.ActiveGame.State==GameState.Running||Model.CK.ActiveGame.State==GameState.Over){
+                <input name="gamedelay" type="number" min="1" value="@Model.CK.ActiveGame.GameDelay" class="time-input" placeholder="Enter Game delay" onfocusout="this.form.submit()" disabled>
+              }else{
+                <input name="gamedelay" type="number" min="1" value="@Model.CK.ActiveGame.GameDelay" class="time-input" placeholder="Enter Game delay" onfocusout="this.form.submit()">
+              }
+              <b class="minutes">Sec</b>
+            </div>
+          </div>
+          <!-- countdown text -->
+          <p class="countdown">00 : 00 : 00</p>
+          <!-- buttons -->
+          <div class="buttons">
+            @if(Model.CK.ActiveGame.State==GameState.Over){
+              <button id="readybtn" name="gameready" class="startstop" type="submit" >New Game</button>
+            }else if(Model.CK.ActiveGame.State==GameState.Ready){
+              <button id="startbtn" name="gamestart" class="startstop" type="submit" >Start</button>
+            }else{
+              <button id="stopbtn" name="gamestop" class="startstop" type="submit" >Stop</button>
+            }
+          </div>
+        </form>
       </div>
-      
-      
-      <!-- submit button or set button -->
-
-    
-      <!-- countdown text -->
-      <p class="countdown">00 : 00 : 00</p>
-
-      <!-- buttons -->
-      <div class="buttons">
-        @if(Model.CK.ActiveGame.State!=GameState.Running){
-          <button id="startbtn" name="gamestart" class="startstop" type="submit" >Start</button>
-        }else{
-          <button id="stopbtn" name="gamestop" class="startstop" type="submit" >Stop</button>
+    </div>
+  </div>
+  <div class="grid-container2">
+    @foreach(var team in Model.CK.ActiveGame.Gamemode.Teams){
+      @foreach (var player in team.Players)
+      {
+      <div>
+        @System.Text.Encoding.UTF8.GetString(player.Client.CKInv.Items[0].Value)
+        <br><div class="quickfix">@team.Name</div>
+        <div class="stats">
+          
+          <br>Hits:&nbsp;@player.Performance.Stats[1].GetValue()
+          <br>Accuracy:&nbsp;@player.Performance.Stats[2].GetValue()%
+          <br>Shields Used:&nbsp;@player.Performance.Stats[3].GetValue()
+          <br>Hitpoints:&nbsp;@player.Performance.Stats[4].GetValue()
+          <br>Cartridges:&nbsp;@player.Performance.Stats[5].GetValue()
+          <br>Clips:&nbsp;@player.Performance.Stats[6].GetValue()
+        </div>
+      </div>
+      }
+    }
+  </div>  
+  <div class="grid-container3">
+    <div>
+      @foreach (var discipline in Model.CK.ActiveGame.Gamemode.Mastery.Disciplines)
+      {
+        if(discipline.GetChampion()!=null){
+          @discipline.Name<span>:&nbsp;</span>@System.Text.Encoding.UTF8.GetString(discipline.GetChampion().Client.CKInv.Items[0].Value)<br>
         }
-      </div>
-    </form>
+      }
+    </div>
   </div>
-  </div>
-</div>
-
 </section>
 <script src="~/js/timer.js" asp-append-version="true"></script>

@@ -36,8 +36,6 @@ namespace CKS_1._0.Pages
             Buffer.BlockCopy(hiddenplayeridb, 0, LWbytelist[0], 0, 2);
             
             Player p = CK.wifiHandler.Clients.Find(x=>x.Client.ConState==ConnectionState.GameReady&&x.Client.LWInv.Items.Find(y=>y.Id==0x14).Value.SequenceEqual(LWbytelist[0]));
-            byte[] testa = CK.wifiHandler.Clients[0].Client.LWInv.Items[0].Value;
-            byte[] testb = LWbytelist[0];
  
             Inventory LWinv = new Inventory();
 
@@ -103,7 +101,7 @@ namespace CKS_1._0.Pages
             Buffer.BlockCopy(autoreloadb, 0, LWbytelist[8], 0, 1);
             if(!p.Client.LWInv.Items.Find(x=>x.Id==0x3a).Value.SequenceEqual(LWbytelist[8])) LWinv.Items.Add(new Item(0x3a, LWbytelist[8]));
 
-            if(LWinv.Items.Count>0){
+            if(LWinv.Items.Count>0&&!CK.testing){
                 CK.wifiHandler.SendMessage(new InventoryChangeMessage(p.Client.Msgcount, LWinv), p.Client);
             }
             Thread.Sleep(3000);

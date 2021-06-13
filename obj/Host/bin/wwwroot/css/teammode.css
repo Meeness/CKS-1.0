@@ -28,11 +28,11 @@
   
   .Team-y { grid-area: Team-y;}
   
-  .Teamx-players { grid-area: Teamx-players; background-color: #C4C4C4;}
+  .Teamx-players { grid-area: Teamx-players; background-color: #C4C4C4; overflow: hidden; overflow-y:scroll;}
   
-  .Teamy-players { grid-area: Teamy-players; background-color: #C4C4C4; }
+  .Teamy-players { grid-area: Teamy-players; background-color: #C4C4C4; overflow: hidden; overflow-y:scroll;}
 
-  .Teamxy-players { grid-area: Team-players Teamy-players; background-color: #C4C4C4;}
+  .Teamxy-players { grid-area: Team-players Teamy-players; background-color: #C4C4C4; overflow: hidden; overflow-y:scroll;}
   
   .Script-name { grid-area: Script-name; text-align: center; }
   
@@ -47,8 +47,13 @@
     font-weight: bold;
     padding-top: 10px;
   }
+  .playerText{
+    display:inline-block;
+    position:relative;
+  }
 
-  .teamselect{
+  .formselect{
+    display: inline-block;
     position: sticky;
     left: 70%;
   }

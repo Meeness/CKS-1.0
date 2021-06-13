@@ -26,25 +26,6 @@ namespace CKS_1._0.Pages
             
         }
         public IActionResult OnPost(){
-            //teamselect
-            var teamselect = Request.Form["teamselect"];
-            if((teamselect!=""&&(String)teamselect!=null)&&CK.ActiveGame.State!=GameState.Running){
-                TeamSelect(teamselect);
-            }
-            //change team name
-            var teamindex = Request.Form["teamindex"];
-            if(teamindex != "" && (String)teamindex != null&&CK.ActiveGame.State!=GameState.Running){
-                var teamname = Request.Form["teamname"];
-                if(teamname != "" && (String)teamname != null){
-                    CK.ActiveGame.Gamemode.Teams[Convert.ToInt16(teamindex)].Name=teamname;
-                }
-            }
-            //gamemode select
-            var modeselect = Request.Form["modeselect"];
-            if(modeselect != "" && (String)modeselect != null&&CK.ActiveGame.State!=GameState.Running){
-                CK.ActiveGame.SelectGameMode(Convert.ToInt16(modeselect));
-            }
-
             //game duration
             var gameduration = Request.Form["gameduration"];
             if(gameduration.Count>0){
@@ -58,38 +39,23 @@ namespace CKS_1._0.Pages
             //game start & stop
             var gamestart = Request.Form["gamestart"];
             var gamestop = Request.Form["gamestop"];
+            var gameready = Request.Form["gameready"];
 
             if((String)gamestart!=null){
                 CK.ActiveGame.StartGame(CK.wifiHandler);
-
             }else if((String)gamestop!=null){
                 CK.ActiveGame.EndGame(CK.wifiHandler);
+            }else if((String)gameready!=null){
+                CK.NewGame();
             }
 
- 
-            
+            //testmode engage
+            var testmode = Request.Form["testmode"];
+            if(testmode.Count>0){
+                CK.CreatePlayerTest();
+            }
 
             return Page();
-        }
-        public void TeamSelect(string teamSelect)
-        {
-            string[] ts = teamSelect.Split(' ');
-            
-            int pId = Convert.ToInt16(ts[0]);
-            
-            byte[] compareArr = new byte[2];
-            Buffer.BlockCopy(BitConverter.GetBytes(pId), 0, compareArr, 0, 2);
-            Player p = CK.wifiHandler.Clients.Find(x=>x.Client.ConState==ConnectionState.GameReady&&x.Client.LWInv.Items.Find(x=>x.Id==0x14).Value.SequenceEqual(compareArr));
-            if(p!=null)CK.ActiveGame.ChangeTeam(p, Convert.ToInt16(ts[1]));
-            
-        }
-        private static string FormatBytes(Byte[] bytes)
-        {
-            string value = "";
-            foreach (var byt in bytes)
-                value += String.Format("{0:X2} ", byt);
-
-            return value;
         }
     }
 }

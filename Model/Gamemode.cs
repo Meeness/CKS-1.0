@@ -11,6 +11,9 @@ namespace CKS_1._0.Model
         public string Description{get;set;}
         public List<Team> Teams{get;set;}
         public Inventory Settings{get;set;}
+
+        public Mastery Mastery{get;private set;}
+
         public Gamemode(int id, string name, string description)
         {
             Id=id;
@@ -18,6 +21,7 @@ namespace CKS_1._0.Model
             Description=Description;
             Teams=new List<Team>();
             Settings = new Inventory();
+            Mastery = new Mastery(this);
 
         }
     }

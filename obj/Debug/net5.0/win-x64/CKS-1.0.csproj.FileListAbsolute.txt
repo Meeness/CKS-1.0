@@ -158,3 +158,4 @@ C:\Users\LarsV\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.pdb
 C:\Users\LarsV\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\CKS-1.0.genruntimeconfig.cache
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\DM.cshtml.g.cs
 C:\Users\Lenovo\Desktop\Combat\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\scoreboard.cshtml.g.cs
+C:\Users\LarsV\Documents\GitHub\CKS-1.0\obj\Debug\net5.0\win-x64\Razor\Pages\scoreboard.cshtml.g.cs
