@@ -10,7 +10,7 @@ C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\images\stats.p
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\images\steeringwheel.png
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\js\deathmatch.js
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\js\site.js
-C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\js\teammode.js
+C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\js\timer.js
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 C:\Users\Henry Moon\Documents\GitHub\CKS-1.0\obj\Host\bin\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
