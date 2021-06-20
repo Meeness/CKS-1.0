@@ -21,6 +21,7 @@ namespace CKS_1._0.Model
         public long RemainingGameTime{get;set;}
         
         public List<Player> AvailPlayers{get;set;}
+        public EventHandler EventHandler{get;set;}
 
 
         public Game(List<Gamemode> gamemodes, List<Player> clients)
@@ -30,6 +31,7 @@ namespace CKS_1._0.Model
             State = GameState.Ready;
             GameDuration=15;
             GameDelay=5;
+            EventHandler=new EventHandler();
             SelectGameMode(1);
         }
         public void SelectGameMode(int id){
@@ -85,6 +87,10 @@ namespace CKS_1._0.Model
         }
         public void StartGame(WifiHandler wifiHandler){
             GameStart = DateTime.Now.AddSeconds(GameDelay);
+            
+            wifiHandler.EventTimeStamp = GameStart;
+            wifiHandler.CKEventNdx = 0;
+            
             State = GameState.Running;
             foreach(Team team in Gamemode.Teams){
                 foreach(Player player in team.Players){
@@ -100,6 +106,7 @@ namespace CKS_1._0.Model
                     if(inv.Items.Count>0)wifiHandler.SendMessage(new GamemodeItemUpdateMessage(player.Client.Msgcount, inv), player.Client);
 
                     wifiHandler.SendMessage(new GameMessage(player.Client.Msgcount, true, GameStart, Convert.ToUInt32(GameDuration*60000)), player.Client);
+                    wifiHandler.CKSendMessage(new CKGame(true), player.Client);
                 }
             }
         }
@@ -109,6 +116,7 @@ namespace CKS_1._0.Model
             foreach(Team team in Gamemode.Teams){
                 foreach(Player player in team.Players){
                     wifiHandler.SendMessage(new GameMessage(player.Client.Msgcount, false), player.Client);
+                    wifiHandler.CKSendMessage(new CKGame(false), player.Client);
                 }
             }
         }

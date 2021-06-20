@@ -48,8 +48,8 @@ namespace CKS_1._0.Model
             wifiHandler=new WifiHandler();
             ActiveGame=new Game(Gamemodes, wifiHandler.Clients);
 
-            //Thread t2 = new Thread(()=>UpdateCycle());
-            //t2.Start();
+            Thread t2 = new Thread(()=>UpdateCycle());
+            t2.Start();
 
             //test
             //CreatePlayerTest();
@@ -64,18 +64,24 @@ namespace CKS_1._0.Model
             while(!testing)
             {   
                 foreach(Player p in wifiHandler.Clients){
-                    if(p.Client.ConState==ConnectionState.Online){
+                    if(p.Client.ConState==ConnectionState.Online&&p.Client.CKConState==CKConnectionState.Online){
                         p.Client.ConState=ConnectionState.GameReady;
                         ActiveGame.AvailPlayers.Add(p);
                     }
-                    if(ActiveGame.State==GameState.Running&&ActiveGame.IsGameOver()){
-                        ActiveGame.EndGame(wifiHandler);
+                    if(ActiveGame.State==GameState.Running){
+                        wifiHandler.SendMessage(new QueuedDataMessage(p.Client.Msgcount, wifiHandler.EventTimeStamp), p.Client);
+                        wifiHandler.CKSendMessage(new CKEventUpdate(wifiHandler.CKEventNdx), p.Client);
+                        if(ActiveGame.IsGameOver())ActiveGame.EndGame(wifiHandler);
                     }
                     if(p.Client.ConState==ConnectionState.Initialized||p.Client.ConState==ConnectionState.GameReady){
 
                         wifiHandler.SendMessage(new InventoryUpdateMessage(p.Client.Msgcount, p.Client.LWInv), p.Client);
-                        Thread.Sleep(200);
+                        
                     }
+                    if(p.Client.CKConState==CKConnectionState.Authenticated||p.Client.CKConState==CKConnectionState.Online){
+                        wifiHandler.CKSendMessage(new CKInventoryUpdate(), p.Client);
+                    }
+                    Thread.Sleep(200);
                 }
                 Thread.Sleep(200);
             }      

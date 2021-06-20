@@ -20,7 +20,9 @@ namespace CKS_1._0.Model.Wifi
         public Inventory LWItemsUsed {get;set;}
         public Inventory CKItemsUsed {get;set;}
 
-
+        //public byte[] EventTimeStamp{get;set;}
+        public DateTime EventTimeStamp{get;set;}
+        public UInt16 CKEventNdx{get;set;}
         
         //public IPAddress Gun = new IPAddress(new byte[] { 0xc0, 0xa8, 0x1f, 0xf5 });
 
@@ -72,6 +74,7 @@ namespace CKS_1._0.Model.Wifi
 
             Socket = new UdpClient(new IPEndPoint(IPAddress.Any, Port));
 
+            CKEventNdx=0;
 
             Thread t1 = new Thread(()=>WifiReader());
             t1.Start();
@@ -82,14 +85,20 @@ namespace CKS_1._0.Model.Wifi
             byte[] m = msg.CombinedMessage();
             Socket.Send(m, m.Length, client.endPoint);    
         }
+        public void CKSendMessage(Message msg, Client client){
+            byte[] m = msg.CombinedMessage();
+            Socket.Send(m, m.Length, client.CKendPoint); 
+        }
         public void WifiReader(){
             
-                IPEndPoint remoteEndPoint = new IPEndPoint(0, 0);
-                while(true){
-                    byte[] datagramReceived = Socket.Receive(ref remoteEndPoint);                    
-                    if(datagramReceived.Length>=8&&Encoding.ASCII.GetString(datagramReceived, 0, 4)=="<LW>")
+            IPEndPoint remoteEndPoint = new IPEndPoint(0, 0);
+            while(true){
+                byte[] datagramReceived = Socket.Receive(ref remoteEndPoint);                    
+                if(datagramReceived.Length>=8)
+                {
+                    if(Encoding.ASCII.GetString(datagramReceived, 0, 4)=="<LW>")
                     {
-                        
+                    
                         switch (datagramReceived[4])
                         {
                             case 0x02:
@@ -98,7 +107,9 @@ namespace CKS_1._0.Model.Wifi
                                     Player p = new Player(new Client(remoteEndPoint.Address, Port));
                                     Clients.Add(p);
                                     p.Client.ConState=ConnectionState.Connecting;
-                                    SendMessage(new AuthenticateMessage(DateTime.Now), p.Client);
+                                    DateTime d = DateTime.Now;
+                                    p.Client.CKIdentifier = BitConverter.GetBytes(Piece.ConvertDatetime(d));
+                                    SendMessage(new AuthenticateMessage(d), p.Client);
                                 }
                                 break;
                             case 0x03:
@@ -130,6 +141,26 @@ namespace CKS_1._0.Model.Wifi
                                 //something
                                 break;
                             case 0x08:
+                                Player p8 = Clients.Find(x=>x.Client.endPoint.Address.ToString()==remoteEndPoint.Address.ToString());
+                                if(p8!=null)//client exist
+                                {
+                                    for(int i=8;i<datagramReceived.Length;i+=16){
+                                        byte[] b = new byte[8];
+                                        Buffer.BlockCopy(datagramReceived, i, b, 0, 8);
+                                        DateTime d = new DateTime(1601, 01, 01, 0, 0, 0, DateTimeKind.Local);
+                                        d.AddTicks(BitConverter.ToInt64(b));
+                                        EventTimeStamp = d;                               
+                                        switch(datagramReceived[i+8]){
+                                            case 0x03:
+                                                Player Shooter = Clients.Find(x=>x.Client.LWInv.Items.Find(y=>y.Id==0x14).Value.SequenceEqual(new byte[]{datagramReceived[i+9], 0x00}));
+                                                if(Shooter!=null)Shooter.Performance.Stats[1].Value++;
+                                                break;
+                                            case 0x05:
+                                                p8.Performance.Stats[0].Value++;
+                                                break;
+                                        }
+                                    }
+                                }
                                 //read
                                 //something
                                 break;
@@ -144,9 +175,11 @@ namespace CKS_1._0.Model.Wifi
                                             nextValuelen=datagramReceived[i+3];
                                             nextIdNdx=i+4+nextValuelen;
                                             Item item = p9.Client.LWInv.Items.Find(x=>x.Id==datagramReceived[i]);
-                                            byte[] b = new byte[nextValuelen];
-                                            Buffer.BlockCopy(datagramReceived, i+4, b, 0, nextValuelen);
-                                            item.Value = b;
+                                            if(item!=null){
+                                                byte[] b = new byte[nextValuelen];
+                                                Buffer.BlockCopy(datagramReceived, i+4, b, 0, nextValuelen);
+                                                item.Value = b;
+                                            }
                                         } 
                                     }
                                     if(p9.Client.ConState==ConnectionState.Initialized)p9.Client.ConState=ConnectionState.Online;
@@ -160,8 +193,63 @@ namespace CKS_1._0.Model.Wifi
                                 //something
                                 break;
                         }
-                    }    
-                }
+                    }
+                    else if(Encoding.ASCII.GetString(datagramReceived, 0, 4)=="<CK>"){
+                        switch (datagramReceived[4])
+                        {
+                            case 0x02:
+                                byte[] b = new byte[8];
+                                Buffer.BlockCopy(datagramReceived, 8, b, 0, 8);
+                                Player p = Clients.Find(x=>x.Client.CKIdentifier.SequenceEqual(b));
+                                if(p!=null&&p.Client.CKConState==CKConnectionState.Offline){
+                                    CKSendMessage(new CKConnectionLock(), p.Client);
+                                    p.Client.CKConState=CKConnectionState.Connecting;
+                                }
+                                break;
+                            case 0x03: 
+                                Player p3 = Clients.Find(x=>x.Client.CKendPoint.Address.ToString()==remoteEndPoint.Address.ToString());
+                                if(p3!=null){
+                                    p3.Client.CKConState=CKConnectionState.Authenticated;
+                                }
+                                break;
+                            case 0x08:
+                                Player p8 = Clients.Find(x=>x.Client.CKendPoint.Address.ToString()==remoteEndPoint.Address.ToString());
+                                if(p8!=null){
+                                    for(int i = 8;i<datagramReceived.Length;i+=3){
+                                        byte[] b8 = new byte[8];
+                                        Buffer.BlockCopy(datagramReceived, i, b8, 0, 2);
+                                        CKEventNdx = BitConverter.ToUInt16(b8);
+                                        if(datagramReceived[i+2]==0x01){
+                                            p8.Performance.Stats[3].Value++;
+                                        }
+                                    }
+                                }
+                                break;
+                            case 0x09:
+                                Player p9 = Clients.Find(x=>x.Client.CKendPoint.Address.ToString()==remoteEndPoint.Address.ToString());
+                                if(p9!=null){
+                                    //id, len, data
+                                    p9.Client.CKConState=CKConnectionState.Online;
+                                    int nextValuelen;
+                                    int nextIdNdx = 8;
+                                    for(int i = 8;i<datagramReceived.Length;i++){
+                                        if(i==nextIdNdx){
+                                            nextValuelen=i+1;
+                                            nextIdNdx=i+2+nextValuelen;
+                                            Item item = p9.Client.CKInv.Items.Find(x=>x.Id==datagramReceived[i]);
+                                            if(item!=null){
+                                                byte[] b9 = new byte[nextValuelen];
+                                                Buffer.BlockCopy(datagramReceived, i+2, b9, 0, nextValuelen);
+                                                item.Value = b9;
+                                            }
+                                        }
+                                    }
+                                }
+                                break;
+                        }
+                    }
+                }    
+            }
             
         }
     }
