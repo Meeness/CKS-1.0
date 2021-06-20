@@ -10,12 +10,15 @@ namespace CKS_1._0.Model
     public class Client
     {
         public ConnectionState ConState {get;set;}
+        public CKConnectionState CKConState{get;set;}
 
         public Inventory LWInv {get;set;} //laserwar inventory
         public Inventory LWInvAll {get;set;} //entire laserwar inventory
         public Inventory CKInv {get;set;} //combatkarts inventory
 
         public IPEndPoint endPoint {get;set;}
+        public IPEndPoint CKendPoint{get;set;}
+        public byte[] CKIdentifier{get;set;}
         //public UdpClient Socket {get;set;}
         
         private byte _msgcount = 0x01;
@@ -37,6 +40,8 @@ namespace CKS_1._0.Model
             //Socket = new UdpClient(endPoint);
             //Socket.EnableBroadcast = true;
             ConState = ConnectionState.Connecting;
+            CKConState = CKConnectionState.Offline;
+            CKIdentifier=new byte[8];
 
         }
 
@@ -49,5 +54,11 @@ namespace CKS_1._0.Model
         PartlyConnected, //might need to be seperated into 3 states-> GunConnected, MMCUConnected, NoSensorConnected
         Online,
         GameReady
+    }
+    public enum CKConnectionState{
+        Offline,
+        Connecting,
+        Authenticated,
+        Online
     }
 }

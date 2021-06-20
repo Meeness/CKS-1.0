@@ -11,10 +11,11 @@ namespace CKS_1._0.Model.Wifi
         
         public List<Block> Blocks {get;set;}
 
-        public Message(byte classification, byte msgcount )
+        public Message(byte classification, byte msgcount, bool IsLW = true )
         {
             Blocks = new List<Block>();
-            Blocks.Add(new WaterMark());
+            if(IsLW)Blocks.Add(new WaterMark("<LW>"));
+            else Blocks.Add(new WaterMark("<CK>"));
             Blocks.Add(new IdentifierBlock(classification, msgcount));
         }
         public byte[] CombinedMessage()

@@ -42,7 +42,7 @@ namespace CKS_1._0.Model.Wifi
         public static long ConvertDatetime(DateTime dateTime)//datetime->ldap convert
         {
             long d = new DateTime(1601, 01, 01, 0, 0, 0, DateTimeKind.Local).Ticks;
-            long n = DateTime.Now.Ticks;
+            long n = dateTime.Ticks;
             long b = n-d;
             return b;
         }

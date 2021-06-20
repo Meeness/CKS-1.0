@@ -23,6 +23,7 @@ namespace CKS_1._0.Model
             ReadDirection = direction;
         }
         public Item(byte id, string s){
+            Id=id;
             Value = new byte[]{};
             foreach(char c in s ){
                 Value=AddByteToArrayEnd(Value, Convert.ToByte(c));

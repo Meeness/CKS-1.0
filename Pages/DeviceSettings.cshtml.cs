@@ -38,6 +38,36 @@ namespace CKS_1._0.Pages
             Player p = CK.wifiHandler.Clients.Find(x=>x.Client.ConState==ConnectionState.GameReady&&x.Client.LWInv.Items.Find(y=>y.Id==0x14).Value.SequenceEqual(LWbytelist[0]));
  
             Inventory LWinv = new Inventory();
+            Inventory CKinv = new Inventory();
+
+            /****************** CK ****************/ 
+            var playernameele = Request.Form["playername"]; //CK
+            string playername = (string)playernameele;
+
+            int len = playername.Length;
+            CKbytelist.Add(new byte[len]);
+            byte[] playernameb = new byte[len];
+            for(int i = 0;i<len;i++){
+                playernameb[i] = Convert.ToByte(playername[i]);
+            }
+            Buffer.BlockCopy(playernameb, 0, CKbytelist[0], 0, len);
+            if(!p.Client.CKInv.Items.Find(x=>x.Id==0x01).Value.SequenceEqual(CKbytelist[0]))CKinv.Items.Add(new Item(0x01, CKbytelist[0]));
+            
+            var shieldduration = Request.Form["shieldduration"]; //CK
+            CKbytelist.Add(new byte[1]);
+            byte[] shielddurationb = BitConverter.GetBytes(Convert.ToInt32(shieldduration));
+            Buffer.BlockCopy(shielddurationb, 0, CKbytelist[1], 0, 1);
+            if(!p.Client.CKInv.Items.Find(x=>x.Id==0x02).Value.SequenceEqual(CKbytelist[1]))CKinv.Items.Add(new Item(0x02, CKbytelist[1]));
+            
+
+            var shieldcooldown = Request.Form["shieldcooldown"];  //CK
+            CKbytelist.Add(new byte[1]);
+            byte[] shieldcooldownb = BitConverter.GetBytes(Convert.ToInt32(shieldcooldown));
+            Buffer.BlockCopy(shieldcooldownb, 0, CKbytelist[2], 0, 1);
+            if(!p.Client.CKInv.Items.Find(x=>x.Id==0x03).Value.SequenceEqual(CKbytelist[2]))CKinv.Items.Add(new Item(0x03, CKbytelist[2]));
+            /***************************************/
+
+
 
             var playerid = Request.Form["playerid"]; 
             LWbytelist.Add(new byte[2]);
@@ -58,18 +88,8 @@ namespace CKS_1._0.Pages
             if(!p.Client.LWInv.Items.Find(x=>x.Id==0x17).Value.SequenceEqual(LWbytelist[3]))LWinv.Items.Add(new Item(0x17, LWbytelist[3]));
 
 
-            /****************** CK ****************/ 
-            var shieldduration = Request.Form["shieldduration"]; //CK
-            CKbytelist.Add(new byte[1]);
-            byte[] shielddurationb = BitConverter.GetBytes(Convert.ToInt32(shieldduration));
-            Buffer.BlockCopy(shielddurationb, 0, CKbytelist[0], 0, 1);
             
 
-            var shieldcooldown = Request.Form["shieldcooldown"];  //CK
-            CKbytelist.Add(new byte[1]);
-            byte[] shieldcooldownb = BitConverter.GetBytes(Convert.ToInt32(shieldcooldown));
-            Buffer.BlockCopy(shieldcooldownb, 0, CKbytelist[1], 0, 1);
-            /***************************************/
             
             var clips = Request.Form["clips"]; 
             LWbytelist.Add(new byte[1]);
@@ -104,6 +124,10 @@ namespace CKS_1._0.Pages
             if(LWinv.Items.Count>0&&!CK.testing){
                 CK.wifiHandler.SendMessage(new InventoryChangeMessage(p.Client.Msgcount, LWinv), p.Client);
             }
+            if(CKinv.Items.Count>0&&!CK.testing){
+                CK.wifiHandler.CKSendMessage(new CKInventoryChange(CKinv), p.Client);
+            }
+
             Thread.Sleep(3000);
             return Page();
         }

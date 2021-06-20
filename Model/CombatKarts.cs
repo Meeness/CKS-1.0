@@ -100,6 +100,7 @@ namespace CKS_1._0.Model
             foreach(Player pl in wifiHandler.Clients)b++;
             
             Client c = new Client(new IPAddress(new byte[]{ 0xc0, 0xa8, 0x00, b}), WifiHandler.Port);
+            c.CKendPoint = new IPEndPoint(new IPAddress(new byte[]{0xc0, 0xa8, 0x01, b}), WifiHandler.Port);
             c.ConState = ConnectionState.GameReady;
             
             

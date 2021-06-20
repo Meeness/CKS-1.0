@@ -24,6 +24,7 @@
             <div class="row">
               <div class="column" style="background-color:white;">
                 <ul class="column1">
+                  <li>Player Name</li>
                   <li>ID</li>
                   <li>Health points</li>
                   <li>Friendly Fire</li>
@@ -46,6 +47,9 @@
               </div>
               <div class="column" style="background-color:white;">
                 <ul class="column2">
+                <li>
+                  <input name="playername" class="player-id" type="text" value="@System.Text.Encoding.UTF8.GetString(player.Client.CKInv.Items[0].Value)"/>
+                </li>
                 <li>
                   <select name="playerid" class="player-id"> 
                     @foreach (var value in Model.CK.wifiHandler.LWItemsUsed.Items.Find(x=>x.Id==0x14).AllowedValues)

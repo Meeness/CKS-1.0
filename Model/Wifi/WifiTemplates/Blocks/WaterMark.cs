@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 namespace CKS_1._0.Model.Wifi.WifiTemplates
 {
     public class WaterMark:Block{
-        public WaterMark():base(new ValuePiece("<LW>")){}
+        public WaterMark(string waterMark):base(new ValuePiece(waterMark)){}
     }
 }
